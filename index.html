@@ -196,6 +196,26 @@
             color: var(--accent);
         }
 
+        /* Future Projects */
+        .future-projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .future-project-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .future-project-title:hover {
+            color: var(--text);
+        }
+
         /* Links Section */
         .links-grid {
             display: grid;
@@ -400,77 +420,25 @@
             <div class="projects-grid">
                 <div class="project">
                     <div class="project-meta">
-                        <h3 class="project-title">Healthcare Navigator</h3>
-                        <p class="project-type">iOS App — In Development</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">SwiftData</span>
-                            <span class="tag">Vision</span>
-                        </div>
-                    </div>
-                    <div class="project-description">
-                        <p>Comprehensive healthcare documentation assistant that helps patients understand medical bills, EOBs, and insurance paperwork without providing medical advice.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>Premium design system with sophisticated UI/UX</li>
-                                <li>AI-powered document processing pipeline</li>
-                                <li>SwiftData persistence with encryption</li>
-                                <li>Vision framework for document scanning</li>
-                                <li>Biometric authentication and security measures</li>
-                                <li>Automatic PII redaction and data protection</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">Ask Mom</h3>
+                        <h3 class="project-title">madweather</h3>
                         <p class="project-type">iOS App — Production</p>
                         <div class="project-tags">
                             <span class="tag">SwiftUI</span>
-                            <span class="tag">Stripe</span>
-                            <span class="tag">Monetization</span>
-                            <span class="tag">Security</span>
+                            <span class="tag">Weather API</span>
+                            <span class="tag">Core Location</span>
+                            <span class="tag">Widgets</span>
                         </div>
                     </div>
                     <div class="project-description">
-                        <p>Family knowledge management platform capturing generational wisdom through structured conversations.</p>
+                        <p>Beautiful, minimalist weather app delivering essential forecasts with clean design and intuitive interface.</p>
                         <div class="project-features">
                             <ul>
-                                <li>Stripe integration with subscription tiers ($10/year Premium)</li>
-                                <li>90+ predefined conversation questions</li>
-                                <li>Sophisticated fraud prevention system</li>
-                                <li>Promo codes and referral program</li>
-                                <li>7-day free trial implementation</li>
-                                <li>Automatic SSN redaction and biometric authentication</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">LeaseLens</h3>
-                        <p class="project-type">SaaS Platform — Production</p>
-                        <div class="project-tags">
-                            <span class="tag">NestJS</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">AI Analysis</span>
-                            <span class="tag">Stripe</span>
-                        </div>
-                    </div>
-                    <div class="project-description">
-                        <p>AI-powered lease agreement analysis platform providing intelligent insights for tenants and landlords.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>NestJS backend with TypeScript</li>
-                                <li>Next.js frontend with modern React patterns</li>
-                                <li>AI document processing and analysis</li>
-                                <li>Comprehensive branding and design system</li>
-                                <li>Stripe billing integration</li>
-                                <li>Full-stack production deployment</li>
+                                <li>Real-time weather data with accurate forecasts</li>
+                                <li>Location-based automatic updates</li>
+                                <li>Home screen widgets for quick access</li>
+                                <li>Clean, distraction-free interface</li>
+                                <li>Dark mode support</li>
+                                <li>Optimized for iOS performance</li>
                             </ul>
                         </div>
                     </div>
@@ -503,25 +471,64 @@
             </div>
         </section>
 
-        <section id="ventures">
-            <h2 class="section-title">Ventures & Links</h2>
+        <section id="ventures-section">
+            <h2 class="section-title">Ventures</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <div class="project-meta">
+                        <h3 class="project-title">SuperCoffeeXP</h3>
+                        <p class="project-type">Coffee Shop — Coming Soon</p>
+                        <div class="project-tags">
+                            <span class="tag">Hospitality</span>
+                            <span class="tag">Coffee</span>
+                            <span class="tag">Community</span>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <p>Premium coffee experience combining quality beans, expert preparation, and community-focused atmosphere.</p>
+                        <div class="project-features">
+                            <ul>
+                                <li>Specialty coffee program with rotating origins</li>
+                                <li>Artisanal brewing techniques</li>
+                                <li>Community gathering space</li>
+                                <li>Local partnerships and sustainability focus</li>
+                                <li>Modern design with comfortable ambiance</li>
+                                <li>Tech-enabled ordering and loyalty program</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="future-projects">
+            <h2 class="section-title">Future Projects</h2>
+            <div class="future-projects-list">
+                <div class="future-project-title">Healthcare Navigator</div>
+                <div class="future-project-title">Ask Mom</div>
+                <div class="future-project-title">LeaseLens</div>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2 class="section-title">Links</h2>
             <div class="links-grid">
-                <a href="https://github.com/malikbanks" class="link-card" target="_blank">
+                <a href="https://github.com/zerobleek" class="link-card" target="_blank">
                     <div class="link-card-icon">⌘</div>
                     <div class="link-card-title">GitHub</div>
                     <div class="link-card-subtitle">Code & Projects</div>
                 </a>
-                <a href="https://linkedin.com/in/malikbanks" class="link-card" target="_blank">
-                    <div class="link-card-icon">in</div>
-                    <div class="link-card-title">LinkedIn</div>
-                    <div class="link-card-subtitle">Professional Network</div>
+                <a href="https://www.youtube.com/@zerobleek" class="link-card" target="_blank">
+                    <div class="link-card-icon">▶</div>
+                    <div class="link-card-title">YouTube</div>
+                    <div class="link-card-subtitle">Videos & Content</div>
                 </a>
-                <a href="https://twitter.com/malikbanks" class="link-card" target="_blank">
+                <a href="https://twitter.com/zerobleek" class="link-card" target="_blank">
                     <div class="link-card-icon">𝕏</div>
                     <div class="link-card-title">Twitter</div>
                     <div class="link-card-subtitle">Updates & Thoughts</div>
                 </a>
-                <a href="/cdn-cgi/l/email-protection#167b777a7f7d567b777a7f7d7477787d65786f753875797b" class="link-card">
+                <a href="mailto:malikbanksnyc@gmail.com" class="link-card">
                     <div class="link-card-icon">✉</div>
                     <div class="link-card-title">Email</div>
                     <div class="link-card-subtitle">Get In Touch</div>
@@ -533,8 +540,8 @@
             <div class="footer-content">
                 <p class="footer-text">© 2026 Shabaka Malik Banks. Based in NYC.</p>
                 <div class="social-links">
-                    <a href="https://github.com/malikbanks" target="_blank">GitHub</a>
-                    <a href="https://linkedin.com/in/malikbanks" target="_blank">LinkedIn</a>
-                    <a href="https://twitter.com/malikbanks" target="_blank">Twitter</a>
+                    <a href="https://github.com/zerobleek" target="_blank">GitHub</a>
+                    <a href="https://www.youtube.com/@zerobleek" target="_blank">YouTube</a>
+                    <a href="https://twitter.com/zerobleek" target="_blank">Twitter</a>
                 </div>
             </div
