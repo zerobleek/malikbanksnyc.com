@@ -103,13 +103,19 @@
         }
 
         section {
-            margin-bottom: 160px;
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            gap: 80px;
+            gap: 60px;
         }
 
         .project {
@@ -117,7 +123,7 @@
             grid-template-columns: 1fr 2fr;
             gap: 48px;
             align-items: start;
-            padding-bottom: 80px;
+            padding-bottom: 60px;
             border-bottom: 1px solid var(--border);
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
@@ -317,6 +323,71 @@
             transform: translateX(4px);
         }
 
+        /* Venture Action Buttons */
+        .venture-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .venture-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+
+        .venture-btn:hover {
+            background: var(--hover);
+            border-color: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .venture-btn.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .venture-btn.secondary:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* Product Page Buttons */
+        .product-actions {
+            margin-top: 24px;
+        }
+
+        .product-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+
+        .product-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -441,30 +512,37 @@
                                 <li>Optimized for iOS performance</li>
                             </ul>
                         </div>
+                        <div class="product-actions">
+                            <a href="madweather.html" class="product-btn">→ Product Page</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project">
                     <div class="project-meta">
                         <h3 class="project-title">Cipher Protocol</h3>
-                        <p class="project-type">iOS Game — Completed</p>
+                        <p class="project-type">iOS Fitness RPG — In Development</p>
                         <div class="project-tags">
                             <span class="tag">SwiftUI</span>
-                            <span class="tag">Game Dev</span>
-                            <span class="tag">Haptics</span>
+                            <span class="tag">CoreLocation</span>
+                            <span class="tag">ARKit</span>
+                            <span class="tag">CloudKit</span>
                         </div>
                     </div>
                     <div class="project-description">
-                        <p>90s cyberpunk espionage-themed strategy game featuring complex faction systems and narrative gameplay.</p>
+                        <p>Fitness tracking disguised as a 90s espionage JRPG. GPS-tracked runs become covert operations where consistency matters more than speed, and community support replaces leaderboards. <strong>"No Agent Left Behind"</strong> culture celebrating every runner's journey.</p>
                         <div class="project-features">
                             <ul>
-                                <li>Custom game mechanics and state management</li>
-                                <li>Multi-faction system with unique characteristics</li>
-                                <li>Achievement and progression systems</li>
-                                <li>Advanced haptic feedback integration</li>
-                                <li>Cyberpunk aesthetic with retro-futuristic UI</li>
-                                <li>Complex player profile and inventory systems</li>
+                                <li><strong>Route-based missions:</strong> GPS waypoints unlock intel codes, transforming neighborhood jogs into faction-based espionage campaigns</li>
+                                <li><strong>Authentic retro aesthetic:</strong> Metal Gear Solid-inspired CRT terminal (dark mode) and LCD hardware display (light mode) with period-accurate scanline effects</li>
+                                <li><strong>Community-first fitness:</strong> Agent groups and mission buddies foster accountability without competition</li>
+                                <li><strong>ARKit integration:</strong> Landscape-mode immersive experiences with waypoint interactions</li>
+                                <li><strong>Inclusive by design:</strong> Pivoted from competitive location-locked missions to wellness platform celebrating all fitness levels</li>
+                                <li><strong>Mental health focus:</strong> Personal fulfillment and community connection over performance metrics</li>
                             </ul>
+                        </div>
+                        <div class="product-actions">
+                            <a href="cipher-protocol.html" class="product-btn">→ Product Page</a>
                         </div>
                     </div>
                 </div>
@@ -477,24 +555,29 @@
                 <div class="project">
                     <div class="project-meta">
                         <h3 class="project-title">SuperCoffeeXP</h3>
-                        <p class="project-type">Coffee Shop — Coming Soon</p>
+                        <p class="project-type">Coffee × Gaming Concept — Q3 2026 Launch</p>
                         <div class="project-tags">
-                            <span class="tag">Hospitality</span>
                             <span class="tag">Coffee</span>
+                            <span class="tag">Gaming</span>
+                            <span class="tag">AR/Mobile</span>
                             <span class="tag">Community</span>
                         </div>
                     </div>
                     <div class="project-description">
-                        <p>Premium coffee experience combining quality beans, expert preparation, and community-focused atmosphere.</p>
+                        <p><strong>Fuel. Play. Connect.</strong> Next-generation coffee and gaming concept creating an intentional third place where premium coffee, digital culture, and community converge. Flagship location launching Brooklyn, NYC.</p>
                         <div class="project-features">
                             <ul>
-                                <li>Specialty coffee program with rotating origins</li>
-                                <li>Artisanal brewing techniques</li>
-                                <li>Community gathering space</li>
-                                <li>Local partnerships and sustainability focus</li>
-                                <li>Modern design with comfortable ambiance</li>
-                                <li>Tech-enabled ordering and loyalty program</li>
+                                <li><strong>First-mover advantage:</strong> Pioneering coffee × gaming brand targeting $495B coffee + $546B gaming markets</li>
+                                <li><strong>Mobile-first platform:</strong> AR loyalty system, gamification, and future gaming integrations</li>
+                                <li><strong>Diversified revenue model:</strong> Premium coffee, memberships, events, merchandise, and digital experiences</li>
+                                <li><strong>Target demographic:</strong> Tech-savvy adults with affinity for premium coffee and gaming culture</li>
+                                <li><strong>Scalable model:</strong> Corporate-owned flagship with licensable technology platform and franchise potential</li>
+                                <li><strong>Community-centered:</strong> Purpose-built environment focused on belonging, experience, and progression</li>
                             </ul>
+                        </div>
+                        <div class="venture-actions">
+                            <a href="SuperCoffeeXP_Investor_Summary.pdf" class="venture-btn" target="_blank">📄 View Investor Summary</a>
+                            <a href="mailto:malikbanksnyc@gmail.com?subject=SuperCoffeeXP%20Pitch%20Deck%20Request&body=Hi%20Malik,%0D%0A%0D%0AI'd%20like%20to%20request%20the%20SuperCoffeeXP%20pitch%20deck.%0D%0A%0D%0AThank%20you!" class="venture-btn secondary">📊 Request Pitch Deck</a>
                         </div>
                     </div>
                 </div>
@@ -528,7 +611,7 @@
                     <div class="link-card-title">Twitter</div>
                     <div class="link-card-subtitle">Updates & Thoughts</div>
                 </a>
-                <a href="mailto:malikbanksnyc@gmail.com" class="link-card">
+                <a href="/cdn-cgi/l/email-protection#88e5e9e4e1e3eae9e6e3fbe6f1ebc8efe5e9e1e4a6ebe7e5" class="link-card">
                     <div class="link-card-icon">✉</div>
                     <div class="link-card-title">Email</div>
                     <div class="link-card-subtitle">Get In Touch</div>
@@ -540,8 +623,4 @@
             <div class="footer-content">
                 <p class="footer-text">© 2026 Shabaka Malik Banks. Based in NYC.</p>
                 <div class="social-links">
-                    <a href="https://github.com/zerobleek" target="_blank">GitHub</a>
-                    <a href="https://www.youtube.com/@zerobleek" target="_blank">YouTube</a>
-                    <a href="https://twitter.com/zerobleek" target="_blank">Twitter</a>
-                </div>
-            </div
+                    <a href="https://github.com/zero
