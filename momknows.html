@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MomKnows! — Family knowledge · preserved</title>
+  <meta name="description" content="MomKnows! helps you capture critical life knowledge from the people who raised you — and preserve your own for the people who come after. Privacy-first. No cloud. No servers. $9.99 one-time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    :root {
+      --ink:        #1a1a18;
+      --charcoal:   #3d3c38;
+      --stone:      #6b6960;
+      --parchment:  #d4c9b8;
+      --cream:      #f5f2ec;
+      --off-white:  #faf9f6;
+      --accent:     #b5826a;
+      --blush:      #f0e8df;
+      --border:     rgba(26,26,24,0.10);
+      --border-m:   rgba(26,26,24,0.16);
+      --ff-display: 'DM Serif Display', Georgia, serif;
+      --ff-body:    'DM Sans', system-ui, sans-serif;
+      color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:       #f0ece4;
+        --charcoal:  #c8c2b6;
+        --stone:     #8c8880;
+        --parchment: #4a453e;
+        --cream:     #252320;
+        --off-white: #1c1b19;
+        --accent:    #c8977c;
+        --blush:     #2e2925;
+        --border:    rgba(240,236,228,0.10);
+        --border-m:  rgba(240,236,228,0.18);
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); font-style: normal; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--stone);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .btn-nav {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500 !important;
+    }
+    @media (max-width: 600px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      padding: 120px 0 96px;
+      border-top: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+    h1 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(52px, 8vw, 92px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    h1 .exclaim { color: var(--accent); font-style: normal; }
+    .hero-tagline {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(18px, 3vw, 26px);
+      color: var(--stone);
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    .hero-body {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--charcoal);
+      max-width: 560px;
+      margin-bottom: 48px;
+      line-height: 1.75;
+    }
+    .hero-body strong { font-weight: 500; color: var(--ink); }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--off-white);
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.18s;
+    }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-ghost {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--stone);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-m);
+      padding-bottom: 2px;
+      transition: color 0.18s;
+    }
+    .btn-ghost:hover { color: var(--ink); }
+    .price-badge {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .price-amount {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 36px;
+      color: var(--accent);
+    }
+    .price-note { font-size: 13px; color: var(--stone); }
+
+    /* PRIVACY */
+    .privacy-banner {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+    }
+    h2 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .privacy-banner > p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--charcoal);
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .privacy-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px;
+      background: var(--off-white);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .privacy-icon { font-size: 22px; line-height: 1; }
+    .privacy-label { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .privacy-desc { font-size: 13px; font-weight: 300; color: var(--stone); line-height: 1.5; }
+    .nutrition-label {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-m);
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--stone);
+    }
+    .nutrition-label strong { font-weight: 500; color: var(--ink); }
+    .nutrition-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4caf81;
+      flex-shrink: 0;
+    }
+
+    /* SECTION HEADER */
+    .section-header { margin-bottom: 64px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--charcoal);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* PILLARS */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .pillar {
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--cream);
+      transition: border-color 0.2s;
+    }
+    .pillar:hover { border-color: var(--parchment); }
+    .pillar-number {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--parchment);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .pillar h3 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .pillar-subtitle {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .pillar p { font-size: 15px; font-weight: 300; color: var(--charcoal); line-height: 1.7; }
+
+    /* CATEGORIES */
+    .categories-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .category {
+      padding: 32px 40px;
+      background: var(--cream);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.18s;
+    }
+    .category:hover { background: var(--blush); }
+    .cat-icon { font-size: 28px; margin-bottom: 12px; line-height: 1; }
+    .category h4 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .category p { font-size: 14px; font-weight: 300; color: var(--stone); line-height: 1.6; }
+    .cat-count {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* DEDICATION */
+    .dedication {
+      text-align: center;
+      background: var(--blush);
+      border-radius: 12px;
+      padding: 80px 40px;
+      border: 1px solid var(--border);
+    }
+    .dedication-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--parchment);
+      margin: 0 auto 32px;
+    }
+    .dedication blockquote {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(20px, 4vw, 34px);
+      font-weight: 400;
+      color: var(--charcoal);
+      max-width: 640px;
+      margin: 0 auto 32px;
+      line-height: 1.45;
+    }
+    .dedication-for {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* PRICING */
+    .pricing-card {
+      max-width: 440px;
+      margin: 0 auto;
+      border: 1px solid var(--border-m);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      background: var(--cream);
+    }
+    .pricing-name {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 24px;
+    }
+    .pricing-price {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 72px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-once {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--stone);
+      margin-bottom: 32px;
+    }
+    .pricing-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .check {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .check::after {
+      content: '';
+      width: 6px;
+      height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+      display: block;
+    }
+    .pricing-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--stone);
+      margin-top: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+    }
+    .footer-inner { display: flex; flex-direction: column; gap: 32px; }
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .footer-brand {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .footer-tagline { font-size: 13px; font-weight: 300; color: var(--stone); }
+    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-copy { font-size: 12px; font-weight: 300; color: var(--stone); }
+    .footer-dedication {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      section { padding: 64px 0; }
+      .hero   { padding: 80px 0 64px; }
+      .privacy-banner { padding: 32px 24px; }
+      .pillar { padding: 32px 24px; }
+      .category { padding: 24px; }
+      .pricing-card { padding: 32px 24px; }
+      .dedication { padding: 48px 24px; }
+      .footer-top { flex-direction: column; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* WAITLIST FORM */
+    .waitlist-form {
+      display: flex;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-m);
+      background: var(--off-white);
+      max-width: 400px;
+    }
+    .waitlist-form input {
+      flex: 1;
+      border: none;
+      padding: 13px 16px;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink);
+      background: transparent;
+      outline: none;
+      min-width: 0;
+    }
+    .waitlist-form input::placeholder { color: var(--stone); opacity: 0.7; }
+    .waitlist-form button {
+      background: var(--ink);
+      color: var(--off-white);
+      border: none;
+      padding: 13px 20px;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.18s;
+    }
+    .waitlist-form button:hover { opacity: 0.82; }
+    .success-msg {
+      display: none;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--stone);
+      font-style: italic;
+    }
+
+    /* BOTTOM CTA */
+    .bottom-cta {
+      background: var(--blush);
+      border-radius: 12px;
+      padding: 56px 40px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .bottom-cta h2 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .bottom-cta p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--stone);
+      margin-bottom: 32px;
+    }
+    .bottom-cta .waitlist-form {
+      margin: 0 auto;
+    }
+    .bottom-cta .success-msg {
+      margin-top: 12px;
+    }
+    @media (max-width: 720px) {
+      .bottom-cta { padding: 40px 24px; }
+      .waitlist-form { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a class="nav-logo" href="#">MomKnows<span>!</span></a>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#notify" class="btn-nav">Get Notified</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow animate">Coming Soon · iOS · Privacy First</p>
+      <h1 class="animate delay-1">MomKnows<span class="exclaim">!</span></h1>
+      <p class="hero-tagline animate delay-2">Family knowledge · preserved</p>
+      <p class="hero-body animate delay-2">
+        The people who raised you carry knowledge no one else has —
+        the medicine routine, the water shut-off, the recipe nobody wrote down,
+        the story nobody else knows. <strong>MomKnows! helps you capture it before it's gone —
+        and preserve your own for the people who come after you.</strong>
+      </p>
+      <div class="hero-actions animate delay-3">
+        <div class="waitlist-form" id="heroForm">
+          <input type="email" id="heroEmail" placeholder="your@email.com" autocomplete="email">
+          <button onclick="handleSignup('heroEmail','heroSuccess','heroForm')">Notify Me</button>
+        </div>
+        <p class="success-msg" id="heroSuccess">You're on the list. We'll reach out when it's ready.</p>
+        <a href="#features" class="btn-ghost">See how it works</a>
+      </div>
+      <p class="price-note animate delay-4" style="margin-top:24px;font-size:13px;color:var(--stone);">One-time purchase · no subscription · no account · pricing announced at launch</p>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy">
+    <div class="container">
+      <div class="privacy-banner">
+        <h2>No servers. No cloud.<br>No exceptions.</h2>
+        <p>Privacy isn't a feature in MomKnows! — it's the architecture. Your family's information never leaves your device. We don't have a server to send it to.</p>
+        <div class="privacy-grid">
+          <div class="privacy-item">
+            <span class="privacy-icon">📵</span>
+            <span class="privacy-label">Zero network calls</span>
+            <span class="privacy-desc">The app makes no outbound requests. Ever. Not even to check the time.</span>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-icon">🔒</span>
+            <span class="privacy-label">iOS Keychain</span>
+            <span class="privacy-desc">Sensitive fields are stored in the system Keychain, encrypted by the OS.</span>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-icon">🚫</span>
+            <span class="privacy-label">No third-party SDKs</span>
+            <span class="privacy-desc">No analytics. No crash reporters. No ad networks. No tracking of any kind.</span>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-icon">🛡</span>
+            <span class="privacy-label">AES-256 backups</span>
+            <span class="privacy-desc">Export an encrypted local backup you fully own and control.</span>
+          </div>
+        </div>
+        <div class="nutrition-label">
+          <div class="nutrition-dot"></div>
+          App Privacy Nutrition Label: <strong>Data Not Collected</strong> — across all categories
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES / PILLARS -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">How It Works</p>
+        <h2>Three pillars.<br>One complete picture.</h2>
+        <p class="section-sub">MomKnows! works in both directions — capture knowledge from the people who raised you, and build your own record for the people who come after.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <span class="pillar-number">01</span>
+          <p class="pillar-subtitle">Ask</p>
+          <h3>Guided Questions</h3>
+          <p>200 curated questions across 5 categories, designed to surface the knowledge people forget to share — until it's too late. Work through them together, or send them ahead of a visit.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-number">02</span>
+          <p class="pillar-subtitle">My Life Profile</p>
+          <h3>Your Own Record</h3>
+          <p>A secure personal record of your identity, medical history, insurance, emergency contacts, and vital information — organized so the people who love you can find what they need.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-number">03</span>
+          <p class="pillar-subtitle">Export & Backup</p>
+          <h3>Yours to Keep</h3>
+          <p>Export a clean, readable PDF to share or print. Create an AES-256 encrypted local backup for safekeeping. Your data, fully in your hands — always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">The Ask</p>
+        <h2>40 questions.<br>5 categories.<br>Per person.</h2>
+        <p class="section-sub">Each category is designed to capture a different dimension of the knowledge that gets lost — practical, medical, financial, emergency, and irreplaceable.</p>
+      </div>
+      <div class="categories-list">
+        <div class="category">
+          <div class="cat-icon">🏥</div>
+          <h4>Health & Medical</h4>
+          <p>Medications, dosages, doctors, allergies, surgeries, insurance. The information an ER needs and a family member shouldn't have to guess at.</p>
+          <span class="cat-count">40 questions</span>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🏠</div>
+          <h4>Household & Operations</h4>
+          <p>Water shut-off, circuit breakers, service providers, maintenance schedules, warranties. The knowledge that lives in someone's head until it doesn't.</p>
+          <span class="cat-count">40 questions</span>
+        </div>
+        <div class="category">
+          <div class="cat-icon">💳</div>
+          <h4>Finances & Bills</h4>
+          <p>Accounts, auto-pays, subscriptions, advisors, debts, safe deposit boxes. A complete financial map so nothing falls through the cracks.</p>
+          <span class="cat-count">40 questions</span>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🚨</div>
+          <h4>Emergency & Contacts</h4>
+          <p>Who to call. Where to go. What to do. The full contact chain — neighbors, doctors, attorneys, family members — before you need it.</p>
+          <span class="cat-count">40 questions</span>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🫶</div>
+          <h4>Family Traditions</h4>
+          <p>The recipes. The stories. The rituals nobody documented. The things that make your family yours — captured before they exist only in memory.</p>
+          <span class="cat-count">40 questions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section id="notify">
+    <div class="container">
+      <div class="bottom-cta">
+        <h2>Be first to know.</h2>
+        <p>MomKnows! is coming soon. Drop your email and we'll let you know the moment it's live.</p>
+        <div class="waitlist-form" id="bottomForm" style="margin:0 auto;">
+          <input type="email" id="bottomEmail" placeholder="your@email.com" autocomplete="email">
+          <button onclick="handleSignup('bottomEmail','bottomSuccess','bottomForm')">Notify Me</button>
+        </div>
+        <p class="success-msg" id="bottomSuccess">You're on the list. Talk soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <p class="section-label">Pricing</p>
+        <h2>Pay once.<br>Yours forever.</h2>
+        <p class="section-sub" style="margin:0 auto;">No subscription. No account. No cloud fees. You buy it, you own it.</p>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-name">MomKnows! · Full App</p>
+        <p class="pricing-price" style="font-size:36px;letter-spacing:-0.01em;">Pricing TBD</p>
+        <p class="pricing-once">One-time purchase · no subscription · announced at launch</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check"></span>200 guided questions across 5 categories</li>
+          <li><span class="check"></span>Capture from multiple people — parents, grandparents, anyone</li>
+          <li><span class="check"></span>My Life Profile — your personal record</li>
+          <li><span class="check"></span>PDF export for sharing or printing</li>
+          <li><span class="check"></span>AES-256 encrypted local backup</li>
+          <li><span class="check"></span>iOS Keychain for sensitive fields</li>
+          <li><span class="check"></span>Zero network calls · no account required</li>
+          <li><span class="check"></span>All future updates included</li>
+        </ul>
+        <a href="https://apps.apple.com" target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;opacity:0.4;pointer-events:none;cursor:default;">
+          Coming Soon on the App Store
+        </a>
+        <p class="pricing-note">Available on iPhone and iPad · iOS 16+ · pricing announced at launch</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <p class="footer-brand">MomKnows!</p>
+            <p class="footer-tagline">Family knowledge · preserved</p>
+          </div>
+          <div class="footer-links">
+            <a href="https://malikbanksnyc.com/privacy">Privacy Policy</a>
+            <a href="mailto:malikbanksnyc@gmail.com">Contact</a>
+            <a href="https://malikbanksnyc.com">malikbanksnyc.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">&copy; 2026 Shabaka Malik Banks · New York City</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSignup(inputId, successId, formId) {
+      const email = document.getElementById(inputId).value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById(inputId).focus();
+        return;
+      }
+      document.getElementById(formId).style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    }
+    document.querySelectorAll('.waitlist-form input').forEach(input => {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') this.nextElementSibling.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
