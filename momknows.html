@@ -79,6 +79,15 @@
       text-decoration: none;
     }
     .nav-logo span { color: var(--accent); font-style: normal; }
+    .nav-back {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.15s;
+      margin-right: 24px;
+    }
+    .nav-back:hover { color: var(--ink); }
     .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
     .nav-links a {
       font-size: 13px;
@@ -484,7 +493,10 @@
   <nav>
     <div class="container">
       <div class="nav-inner">
-        <a class="nav-logo" href="#">MomKnows<span>!</span></a>
+        <div style="display:flex;align-items:center;">
+          <a class="nav-back" href="/">← Back</a>
+          <a class="nav-logo" href="#">MomKnows<span>!</span></a>
+        </div>
         <ul class="nav-links">
           <li><a href="#how">How it works</a></li>
           <li><a href="#pricing">Pricing</a></li>
