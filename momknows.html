@@ -577,6 +577,7 @@
       </div>
     </div>
   </footer>
+  <iframe name="gform-iframe" style="display:none;"></iframe>
   <script>
     function handleSignup(inputId, successId, formId) {
       const email = document.getElementById(inputId).value.trim();
@@ -584,6 +585,18 @@
         document.getElementById(inputId).focus();
         return;
       }
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfy5q5NtXqXQW7BhikiTZ-93ezW0VhE7N07LQNkqmMwjniQcQ/formResponse';
+      form.target = 'gform-iframe';
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'entry.716920225';
+      input.value = email;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
       document.getElementById(formId).style.display = 'none';
       document.getElementById(successId).style.display = 'block';
     }
