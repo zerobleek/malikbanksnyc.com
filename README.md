@@ -82,9 +82,9 @@ Update social media links in:
 - Footer section (lines ~536-538)
 
 The website now features:
-- **Selected Work**: Showcasing madweather and Cipher Protocol
-- **Ventures**: Featuring SuperCoffeeXP coffee shop
-- **Future Projects**: Healthcare Navigator, Ask Mom, LeaseLens
+- **Selected Work**: Showcasing MadWeather, Cipher Protocol, and MomKnows!
+- **Ventures**: Featuring Bleek Vision LLC and SuperCoffeeXP
+- **Future Projects**: Assemblage, LeaseLens
 - **Links**: GitHub, YouTube, Twitter, Email
 
 ## 📝 License
