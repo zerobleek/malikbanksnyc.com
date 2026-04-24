@@ -6,7 +6,7 @@
   <title>MomKnows! — A private operational vault for your family</title>
   <meta name="description" content="MomKnows! is an iOS app that captures the practical knowledge your family carries — medications, accounts, contacts, instructions — before you need it. On-device. No accounts. No servers.">
   <meta property="og:title" content="MomKnows! — A private operational vault for your family">
-  <meta property="og:description" content="Capture the practical knowledge your parents carry — medications, accounts, contacts, instructions — before you need it. iOS only. $29 launch pricing through June 15, 2026.">
+  <meta property="og:description" content="Capture the practical knowledge your parents carry — medications, accounts, contacts, instructions — before you need it. iOS only. $29 intro price for a limited time.">
   <link rel="canonical" href="https://malikbanksnyc.com/momknows">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -460,7 +460,7 @@
       </p>
       <p class="hero-sub a d2">
         Built for the moment you wish you had asked. Not a memory book — an operational handoff,
-        captured calmly in advance and ready when you need it.
+        done in advance and ready when you need it.
       </p>
       <div class="cta-row a d3">
         <a href="#" class="btn-app-store">Coming Soon to the App Store</a>
@@ -523,7 +523,7 @@
         </div>
       </div>
       <p class="body-p">
-        <strong>Circle</strong> lets you capture from more than one person. Each profile is separate — Mom's answers don't blend with Dad's, your grandmother stays distinct from your aunt. You can also keep your own profile alongside theirs, building the record your own family will eventually need.
+        A <strong>Circle</strong> is the set of people you're capturing for — and you can have more than one. Each profile is separate: Mom's answers don't blend with Dad's, your grandmother stays distinct from your aunt. You can also keep your own profile alongside theirs, building the record your own family will eventually need.
       </p>
     </div>
   </section>
@@ -535,7 +535,7 @@
         <p class="eyebrow">Crisis View</p>
         <h2>One long-press. Hold up<br>to the paramedic.</h2>
         <p class="body-p">
-          The Crisis View is a single screen designed to be useful at the worst possible moment. Large type, high contrast, no chrome. The information a stranger needs to keep your family member alive and treatable, on one screen, ready to be held up to a phone camera or a clipboard.
+          The Crisis View is a single screen designed to be useful at the worst possible moment. Large type, high contrast, nothing extra on the screen. The information a stranger needs to keep your family member alive and treatable, on one screen, ready to be held up to a phone camera or a clipboard.
         </p>
         <p class="body-p">
           <strong>Tap any contact to call directly.</strong> Tap the address to navigate. The same data exports as a two-page <strong>Emergency Packet PDF</strong> — identity and medical on page one, contacts on page two, formatted for the glove compartment, the bedside drawer, or a sibling's email.
@@ -560,13 +560,13 @@
       <p class="eyebrow">Voice &amp; Stories</p>
       <h2>Speak it.<br>It stays on the phone.</h2>
       <p class="body-p">
-        Every long-answer field accepts spoken input. Dictation is transcribed entirely on the device using Apple's Speech framework with <strong>requiresOnDeviceRecognition</strong> set to true. Audio never leaves the phone — there is no fallback to cloud recognition. If your device or language doesn't support on-device transcription, dictation is disabled rather than rerouted. That is a deliberate refusal, not an oversight.
+        Every long-answer field accepts spoken input. Dictation is transcribed entirely on the device using Apple's Speech framework, with on-device recognition required. Audio never leaves the phone — there is no fallback to cloud recognition. If your device or language doesn't support on-device transcription, dictation is disabled rather than rerouted. A deliberate refusal, not an oversight.
       </p>
       <p class="body-p">
         <strong>Stories</strong> is the open-ended counterpart to the guided questions. Voice memories, one-off anecdotes, the family recipe in the recorder's actual voice, the inherited piece of advice you don't want to lose the cadence of. Photos, videos, and audio recordings can ride along with any story. Stored locally — or on an external USB-C drive of your choice — and bound to whichever Circle profile they belong to.
       </p>
       <p class="body-p">
-        Most stories begin as a question you didn't know you were going to ask. The dictation field is meant to make that easy: you start the recording, you let the person talk, and the transcript builds itself in plain text you can edit later. The audio file stays alongside the transcript, so the voice is preserved even after the words are tidied up.
+        Most stories begin as a question you didn't know you were going to ask. Start the recording, let the person talk, and the transcript builds itself in plain text you can edit later. The audio file stays alongside the transcript, so the voice is preserved even after the words are tidied up.
       </p>
     </div>
   </section>
@@ -581,7 +581,7 @@
           MomKnows! has no accounts, no servers, no cloud sync, no iCloud sync, no third-party backends, no analytics, no crash reporters, and no tracking SDKs of any kind. The App Store privacy label reads <strong>"Data Not Collected"</strong> for every category Apple defines — and that is verifiable with any network inspector you'd care to point at the app, because the only outbound traffic the app produces is Apple's own StoreKit purchase flow, which is handled by iOS rather than by us.
         </p>
         <p class="body-p">
-          Sensitive fields — insurance numbers, account numbers, the kinds of strings you wouldn't paste into a notes app — are stored in the iOS <strong>Keychain</strong> with the <strong>WhenUnlockedThisDeviceOnly</strong> accessibility class. Device-bound. Not synced through iCloud Keychain. Not pulled into a backup unless you explicitly create one. The whole app sits behind biometric unlock (Face ID / Touch ID with a PIN fallback) so a phone left on a kitchen counter is not a phone with the family's medical history on it.
+          Sensitive fields — insurance numbers, account numbers, the kinds of details you wouldn't paste into a notes app — are stored in the iOS <strong>Keychain</strong> with the <strong>WhenUnlockedThisDeviceOnly</strong> accessibility class. Device-bound. Not synced through iCloud Keychain. Not pulled into a backup unless you explicitly create one. The whole app sits behind biometric unlock (Face ID / Touch ID with a PIN fallback) so a phone left on a kitchen counter is not a phone with the family's medical history on it.
         </p>
         <p class="body-p">
           When you create an encrypted backup, the file is sealed with <strong>AES-256-GCM</strong> using a key derived from your passphrase via <strong>PBKDF2-HMAC-SHA256</strong> with 100,000 iterations and a fresh 16-byte salt. You choose the passphrase. We never see it, never store it, and cannot recover it. That is not a policy promise — it is the only configuration that keeps the file unreadable to anyone who is not you. Export the backup anywhere iOS can write a file. Restore it on any iPhone. Take your data with you whenever you decide to go.
@@ -619,12 +619,12 @@
       <h2>Pay once. Own the app.</h2>
       <p class="section-sub">No subscription. No tiers. No in-app purchases. No ads. Updates included.</p>
       <div class="pricing-wrap">
-        <p class="pricing-label">Launch pricing</p>
+        <p class="pricing-label">Intro price</p>
         <p class="pricing-price"><span class="currency">$</span>29</p>
         <p class="pricing-sub">one-time purchase</p>
-        <p class="pricing-window">Available through June 15, 2026</p>
+        <p class="pricing-window">For a limited time</p>
         <a href="#" class="btn-app-store">Coming Soon to the App Store</a>
-        <p class="pricing-after">After June 15, 2026 the app is $49.99, also one-time.</p>
+        <p class="pricing-after">Then $49.99, also one-time.</p>
         <p class="pricing-note">iPhone &amp; iPad · iOS 17 or later</p>
       </div>
     </div>
@@ -637,7 +637,10 @@
       <h2>Made by Bleek Vision LLC.</h2>
       <div class="about-block">
         <p class="body-p">
-          MomKnows! is built and operated by Shabaka Malik Banks under <strong>Bleek Vision LLC</strong>, a small studio based in New York. The app is dedicated to Brenda.
+          MomKnows! is a personal operational vault. Everything lives on your device. Nothing leaves unless you choose to send it.
+        </p>
+        <p class="body-p">
+          Made by <strong>Bleek Vision LLC</strong>, a studio run by Shabaka Malik Banks. The app is dedicated to Brenda.
         </p>
         <p class="body-p">
           Questions, reports, requests of any kind: <a href="mailto:malikbanksnyc@gmail.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;">malikbanksnyc@gmail.com</a>. The address reaches a person, not a queue.
@@ -666,11 +669,11 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Does this sync between my iPhone and iPad?</p>
-          <p class="faq-a">Not in v1.0. Each device holds its own copy. The encrypted backup file is the bridge between devices today.</p>
+          <p class="faq-a">Not at launch. Each device holds its own copy. The encrypted backup file is the bridge between devices today.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Can I share a Circle member with my sibling?</p>
-          <p class="faq-a">Not in v1.0. Sharing is on the roadmap, but only as a feature designed without weakening the privacy architecture. In the meantime, the Emergency Packet PDF is the easiest way to get the most important pieces to a sibling who isn't using the app.</p>
+          <p class="faq-a">Not at launch. Sharing is on the roadmap, but only as a feature designed without weakening the privacy architecture. In the meantime, the Emergency Packet PDF is the easiest way to get the most important pieces to a sibling who isn't using the app.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Why isn't this on Android?</p>
@@ -678,7 +681,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Is this a subscription?</p>
-          <p class="faq-a">No. One-time purchase, $29 through June 15, 2026 and $49.99 after that. Future updates included.</p>
+          <p class="faq-a">No. One-time purchase, $29 as an intro price for a limited time, then $49.99. Future updates included.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Is this medical or legal advice?</p>
@@ -710,7 +713,7 @@
       <div class="footer-inner">
         <div class="footer-left">
           <span class="footer-brand">MomKnows!</span>
-          <span class="footer-copy">&copy; 2026 Bleek Vision LLC · Shabaka Malik Banks · New York</span>
+          <span class="footer-copy">&copy; 2026 Bleek Vision LLC</span>
         </div>
         <div class="footer-links">
           <a href="/momknows-privacy">Privacy Policy</a>
