@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNCONTAINED — Supercritical Events</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="UNCONTAINED — Supercritical Events">
+    <meta property="og:description" content="A nuclear fission puzzle game. 72 levels. 9 atom types. 1 split to end the universe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malikbanksnyc.com/uncontained.html">
+    <!-- <meta property="og:image" content="uncontained-og.png"> -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UNCONTAINED — Supercritical Events">
+    <meta name="twitter:description" content="A nuclear fission puzzle game. 72 levels. 9 atom types. 1 split to end the universe.">
+
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --text: #1c1917;
+            --text-muted: #57534e;
+            --border: #e7e5e4;
+            --accent: #0a0a0a;
+            --hover: #292524;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* NAV */
+        nav {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--text); }
+
+        .nav-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-tag {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 36px;
+            max-width: 440px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: var(--hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-outline:hover {
+            color: var(--text);
+            border-color: #c0bdb9;
+        }
+
+        /* PHONE CLUSTER */
+        .hero-phones {
+            position: relative;
+            height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-wrap {
+            position: absolute;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .phone-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .phone-wrap.main {
+            width: 195px;
+            height: 420px;
+            z-index: 3;
+        }
+
+        .phone-wrap.side {
+            width: 175px;
+            height: 380px;
+            z-index: 2;
+            transform: translateX(160px) rotate(4deg);
+            opacity: 0.88;
+        }
+
+        .phone-wrap.back {
+            width: 165px;
+            height: 355px;
+            z-index: 1;
+            transform: translateX(-155px) rotate(-4deg);
+            opacity: 0.75;
+        }
+
+        /* PLACEHOLDER SCREENSHOTS */
+        .phone-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #57534e;
+            font-size: 12px;
+            font-family: 'DM Sans', sans-serif;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* SECTION SHARED */
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-item h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ATOMS */
+        .atoms-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .atoms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .atom-card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .atom-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .atom-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .atom-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .atom-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+        }
+
+        .atom-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .atom-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* CHAPTERS */
+        .chapters-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapters-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .chapter-item {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-item:last-child,
+        .chapter-item:nth-last-child(1) {
+            border-bottom: none;
+        }
+
+        .chapter-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .chapter-info h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .chapter-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* TECH */
+        .tech-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .tech-pill {
+            font-size: 13px;
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+        }
+
+        .footer-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-title { font-size: 40px; }
+            .hero-phones { height: 380px; }
+
+            .phone-wrap.main { width: 155px; height: 335px; }
+            .phone-wrap.side { width: 138px; height: 300px; transform: translateX(125px) rotate(4deg); }
+            .phone-wrap.back { width: 130px; height: 280px; transform: translateX(-120px) rotate(-4deg); }
+
+            .features-grid { grid-template-columns: 1fr; gap: 32px; }
+            .atoms-grid { grid-template-columns: 1fr; }
+            .chapters-list { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-back">&larr; Back</a>
+            <span class="nav-title">UNCONTAINED</span>
+            <span class="nav-tag">iOS Game</span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <p class="hero-eyebrow">iOS &middot; Puzzle &middot; Nuclear Fission</p>
+                <h1 class="hero-title">UNCONTAINED</h1>
+                <p class="hero-subtitle">Supercritical Events</p>
+                <p class="hero-desc">72 levels. 9 atom types. 1 split to end the universe. No ads. No in-app purchases.</p>
+                <div class="btn-row">
+                    <a href="#" class="btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Coming Soon on the App Store
+                    </a>
+                    <a href="index.html" class="btn-outline">&larr; Back</a>
+                </div>
+            </div>
+
+            <div class="hero-phones">
+                <div class="phone-wrap back">
+                    <!-- Replace with screenshot -->
+                    <div class="phone-placeholder">Screenshot 3</div>
+                </div>
+                <div class="phone-wrap main">
+                    <!-- Replace with screenshot -->
+                    <div class="phone-placeholder">Screenshot 1</div>
+                </div>
+                <div class="phone-wrap side">
+                    <!-- Replace with screenshot -->
+                    <div class="phone-placeholder">Screenshot 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="container">
+        <p class="section-label">What makes it different</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>72 Levels</h3>
+                <p>Six chapters. First Light to Vacuum Decay.</p>
+            </div>
+            <div class="feature-item">
+                <h3>9 Atom Types</h3>
+                <p>Each one splits, absorbs, or detonates differently.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Chain Reactions</h3>
+                <p>Reflector walls. Gravity wells. Neutron flux zones.</p>
+            </div>
+            <div class="feature-item">
+                <h3>7 Yield Tiers</h3>
+                <p>Tactical to Vacuum Decay. Bad angles cost everything.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Pay Once</h3>
+                <p>No ads. No timers. No tricks.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Metal Shaders</h3>
+                <p>Hardware-accelerated visuals. Procedural audio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ATOM TYPES -->
+<section class="atoms-section">
+    <div class="container">
+        <p class="section-label">The 9 atom types</p>
+        <div class="atoms-grid">
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #00CCFF;"></span>
+                    <span class="atom-name">U-235</span>
+                </div>
+                <p class="atom-meta">2 fragments &middot; Yield 10</p>
+                <p class="atom-desc">Splits at speed. The foundation.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #FF6D00;"></span>
+                    <span class="atom-name">Pu-239</span>
+                </div>
+                <p class="atom-meta">3 fragments &middot; Yield 25</p>
+                <p class="atom-desc">Detonates on contact.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #78716c;"></span>
+                    <span class="atom-name">U-238</span>
+                </div>
+                <p class="atom-meta">0 fragments &middot; Yield 0</p>
+                <p class="atom-desc">Absorbs fragments. Chain killer.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #22c55e;"></span>
+                    <span class="atom-name">Deuterium</span>
+                </div>
+                <p class="atom-meta">0 fragments &middot; Yield 50</p>
+                <p class="atom-desc">Fusion shockwave. Compresses everything nearby.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #9933E6;"></span>
+                    <span class="atom-name">Th-232</span>
+                </div>
+                <p class="atom-meta">2 fragments &middot; Yield 15</p>
+                <p class="atom-desc">Delayed split. Timing is everything.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #FF1A80;"></span>
+                    <span class="atom-name">Cf-252</span>
+                </div>
+                <p class="atom-meta">4 fragments &middot; Yield 40</p>
+                <p class="atom-desc">Widest spread. Maximum chaos.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #FFD900;"></span>
+                    <span class="atom-name">Tritium</span>
+                </div>
+                <p class="atom-meta">0 fragments &middot; Yield 150</p>
+                <p class="atom-desc">Doubles nearby yield.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #FFFFFF; border: 1px solid var(--border);"></span>
+                    <span class="atom-name">Antimatter</span>
+                </div>
+                <p class="atom-meta">0 fragments &middot; Yield 500</p>
+                <p class="atom-desc">Annihilates everything.</p>
+            </div>
+            <div class="atom-card">
+                <div class="atom-header">
+                    <span class="atom-dot" style="background: #00FFCC;"></span>
+                    <span class="atom-name">Strange Quark</span>
+                </div>
+                <p class="atom-meta">2 fragments &middot; Yield 100</p>
+                <p class="atom-desc">Fragments never slow down.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters-section">
+    <div class="container">
+        <p class="section-label">6 chapters</p>
+        <div class="chapters-list">
+            <div class="chapter-item">
+                <span class="chapter-num">01</span>
+                <div class="chapter-info">
+                    <h3>First Light</h3>
+                    <p>Where it begins</p>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">02</span>
+                <div class="chapter-info">
+                    <h3>Chain Theory</h3>
+                    <p>The geometry of destruction</p>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">03</span>
+                <div class="chapter-info">
+                    <h3>Reactor Theory</h3>
+                    <p>Sustained reactions</p>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">04</span>
+                <div class="chapter-info">
+                    <h3>Weapons Physics</h3>
+                    <p>Yield optimization</p>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">05</span>
+                <div class="chapter-info">
+                    <h3>Exotic Matter</h3>
+                    <p>Beyond the periodic table</p>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">06</span>
+                <div class="chapter-info">
+                    <h3>Vacuum Decay</h3>
+                    <p>The end of physics</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TECH -->
+<section class="tech-section">
+    <div class="container">
+        <p class="section-label">Built with</p>
+        <div class="tech-pills">
+            <span class="tech-pill">SpriteKit</span>
+            <span class="tech-pill">Metal Shaders</span>
+            <span class="tech-pill">GameKit</span>
+            <span class="tech-pill">Game Center</span>
+            <span class="tech-pill">AVAudioEngine</span>
+            <span class="tech-pill">iCloud</span>
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">iOS 17+</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Split. Chain. Escape containment.</h2>
+        <p>72 levels. 9 atom types. 1 split to end the universe.</p>
+        <a href="#" class="btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Coming Soon on the App Store
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <span class="footer-name">Shabaka Malik Banks</span>
+                <span class="footer-sub"> / BleekVision</span>
+            </div>
+            <nav class="footer-links">
+                <a href="index.html">Portfolio</a>
+                <a href="https://github.com/zerobleek" target="_blank">GitHub</a>
+                <a href="https://twitter.com/zerobleek" target="_blank">Twitter</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
