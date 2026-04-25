@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MomKnows! — Family knowledge · preserved</title>
-  <meta name="description" content="MomKnows! is the iOS app that helps you capture the critical knowledge your parents carry — before it's too late. No cloud. No servers. Privacy-first.">
+  <title>MomKnows! — A private operational handoff for your family</title>
+  <meta name="description" content="MomKnows! is the iOS app for capturing the operational knowledge your parents carry. No accounts, no servers, no cloud. $29 launch pricing through June 15, 2026.">
+  <meta property="og:title" content="MomKnows!">
+  <meta property="og:description" content="A private, structured way to capture what your parents know — before it's needed. iOS only. One-time purchase. No subscription.">
+  <link rel="canonical" href="https://malikbanksnyc.com/momknows">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     a { color: inherit; }
+    img, svg, figure { display: block; max-width: 100%; }
+
     :root {
       --ink:       #1a1a18;
       --charcoal:  #3d3c38;
@@ -40,6 +45,7 @@
         --border-m:  rgba(240,236,228,0.18);
       }
     }
+
     html { scroll-behavior: smooth; }
     body {
       background: var(--off-white);
@@ -53,7 +59,8 @@
     .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
     section { padding: 88px 0; }
     section + section { border-top: 1px solid var(--border); }
-    /* ── NAV ── */
+
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 50;
       background: var(--off-white);
@@ -61,38 +68,18 @@
       padding: 16px 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 20px;
-      color: var(--ink);
-      text-decoration: none;
-    }
+    .nav-left { display: flex; align-items: center; gap: 24px; }
+    .nav-back { font-size: 13px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
+    .nav-back:hover { color: var(--ink); }
+    .nav-logo { font-family: var(--ff-display); font-style: italic; font-size: 20px; color: var(--ink); text-decoration: none; }
     .nav-logo span { color: var(--accent); font-style: normal; }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a {
-      font-size: 13px; font-weight: 400; color: var(--stone);
-      text-decoration: none; transition: color 0.15s;
-    }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--ink); }
-    .btn-nav {
-      background: var(--accent) !important;
-      color: #fff !important;
-      padding: 8px 16px; border-radius: 4px; font-weight: 500 !important;
-    }
-    @media (max-width: 600px) { .nav-links { display: none; } }
-    /* ── HERO ── */
-    .hero { padding: 104px 0 80px; border-top: none; }
-    .eyebrow {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 4px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 24px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .eyebrow::before {
-      content: ''; width: 20px; height: 1px;
-      background: var(--accent); display: block;
-    }
+    .btn-nav { background: var(--accent) !important; color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: 500 !important; }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+
+    /* TYPOGRAPHY */
     h1 {
       font-family: var(--ff-display);
       font-style: italic;
@@ -104,118 +91,106 @@
       margin-bottom: 8px;
     }
     h1 .exclaim { color: var(--accent); font-style: normal; }
-    .hero-tagline {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: clamp(17px, 2.5vw, 23px);
-      color: var(--stone);
-      margin-bottom: 36px;
-    }
-    .hero-lede {
-      font-size: 19px;
-      font-weight: 300;
-      color: var(--charcoal);
-      max-width: 540px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .hero-lede strong { font-weight: 500; color: var(--ink); }
-    .hero-sub {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--stone);
-      max-width: 480px;
-      margin-bottom: 40px;
-      line-height: 1.65;
-    }
-    /* ── WAITLIST ── */
-    .waitlist-wrap { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-    .waitlist-form {
-      display: flex;
-      border: 1px solid var(--border-m);
-      border-radius: 6px;
-      overflow: hidden;
-      background: var(--off-white);
-      max-width: 380px; width: 100%;
-    }
-    .waitlist-form input {
-      flex: 1; border: none;
-      padding: 12px 16px;
-      font-family: var(--ff-body);
-      font-size: 14px; font-weight: 300;
-      color: var(--ink); background: transparent;
-      outline: none; min-width: 0;
-    }
-    .waitlist-form input::placeholder { color: var(--stone); opacity: 0.6; }
-    .waitlist-form button {
-      background: var(--ink); color: var(--off-white);
-      border: none; padding: 12px 20px;
-      font-family: var(--ff-body);
-      font-size: 13px; font-weight: 500;
-      cursor: pointer; white-space: nowrap;
-      transition: opacity 0.15s;
-    }
-    .waitlist-form button:hover { opacity: 0.82; }
-    .success-msg {
-      display: none;
-      font-size: 14px; font-weight: 300;
-      color: var(--stone); font-style: italic;
-    }
-    .price-note { font-size: 12px; color: var(--stone); font-weight: 300; }
-    /* ── SOCIAL PROOF / MOMENT ── */
-    .moment {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 48px;
-    }
-    .moment-scenarios {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 32px;
-    }
-    .scenario {
-      background: var(--off-white);
-      padding: 24px;
-    }
-    .scenario-icon { font-size: 24px; margin-bottom: 12px; line-height: 1; }
-    .scenario p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.6;
-    }
-    .scenario p strong { font-weight: 500; color: var(--ink); }
-    .moment-close {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: clamp(18px, 3vw, 26px);
-      color: var(--charcoal);
-      max-width: 600px;
-      line-height: 1.4;
-    }
-    .moment-close span { color: var(--accent); }
-    /* ── HOW IT WORKS ── */
     h2 {
       font-family: var(--ff-display);
       font-style: italic;
       font-size: clamp(28px, 4vw, 42px);
       font-weight: 400;
       color: var(--ink);
-      line-height: 1.1;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
       margin-bottom: 8px;
     }
-    .section-sub {
-      font-size: 15px; font-weight: 300;
-      color: var(--stone); max-width: 480px;
-      margin-bottom: 48px; line-height: 1.65;
+    p { margin-bottom: 18px; line-height: 1.75; color: var(--charcoal); }
+    p strong { font-weight: 500; color: var(--ink); }
+    ul, ol { margin: 0 0 18px 20px; line-height: 1.75; color: var(--charcoal); }
+    ul li, ol li { margin-bottom: 6px; }
+    a.inline-link { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .pillars {
+    .eyebrow::before {
+      content: ''; width: 20px; height: 1px;
+      background: var(--accent); display: block;
+    }
+
+    /* HERO */
+    .hero { padding: 96px 0 80px; border-top: none; }
+    .hero-tagline {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--stone);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+    .hero-lede {
+      font-size: 18px;
+      color: var(--charcoal);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 48px; }
+    .hero-figure {
+      max-width: 720px;
+      margin-top: 16px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-figure img { width: 100%; height: 100%; object-fit: contain; opacity: 0.5; }
+
+    /* APP STORE BUTTON */
+    .btn-app-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--off-white);
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-app-store:hover { opacity: 0.85; }
+    .btn-app-store::before {
+      content: '';
+      width: 16px; height: 16px;
+      background: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.05 12.04c-.03-3.13 2.55-4.63 2.66-4.71-1.45-2.13-3.71-2.42-4.51-2.46-1.92-.19-3.74 1.13-4.72 1.13-.97 0-2.47-1.1-4.06-1.07-2.09.03-4.02 1.21-5.09 3.07-2.17 3.77-.55 9.34 1.56 12.4 1.03 1.5 2.26 3.18 3.86 3.12 1.55-.06 2.14-1 4.02-1 1.87 0 2.41 1 4.05.97 1.67-.03 2.73-1.52 3.75-3.03 1.18-1.74 1.67-3.42 1.7-3.51-.04-.02-3.26-1.25-3.29-4.95zM14.65 3.69c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.39-1.3 3.81 1.37.11 2.78-.7 3.63-1.75z'/%3E%3C/svg%3E") center/contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.05 12.04c-.03-3.13 2.55-4.63 2.66-4.71-1.45-2.13-3.71-2.42-4.51-2.46-1.92-.19-3.74 1.13-4.72 1.13-.97 0-2.47-1.1-4.06-1.07-2.09.03-4.02 1.21-5.09 3.07-2.17 3.77-.55 9.34 1.56 12.4 1.03 1.5 2.26 3.18 3.86 3.12 1.55-.06 2.14-1 4.02-1 1.87 0 2.41 1 4.05.97 1.67-.03 2.73-1.52 3.75-3.03 1.18-1.74 1.67-3.42 1.7-3.51-.04-.02-3.26-1.25-3.29-4.95zM14.65 3.69c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.39-1.3 3.81 1.37.11 2.78-.7 3.63-1.75z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* PROSE WIDTH */
+    .prose { max-width: 680px; }
+    .prose p { font-size: 17px; }
+
+    /* CAPTURE — categories */
+    .categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1px;
@@ -223,388 +198,192 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
+      margin: 32px 0;
     }
-    .pillar { background: var(--cream); padding: 36px 32px; }
-    .pillar-num {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 44px; line-height: 1;
-      color: var(--parchment);
-      display: block; margin-bottom: 20px;
+    .category { background: var(--cream); padding: 28px 24px; }
+    .category h4 {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 19px; font-weight: 400; color: var(--ink);
+      margin-bottom: 8px;
     }
-    .pillar-tag {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
-    }
-    .pillar h3 {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 21px; font-weight: 400;
-      color: var(--ink); margin-bottom: 10px;
-    }
-    .pillar p {
-      font-size: 14px; font-weight: 300;
-      color: var(--charcoal); line-height: 1.65;
-    }
-    /* ── PRIVACY ── */
-    .privacy-card {
-      background: var(--cream);
+    .category p { font-size: 14px; line-height: 1.6; margin: 0; color: var(--stone); }
+
+    .circle-card {
+      margin-top: 24px;
+      padding: 28px 32px;
+      background: var(--blush);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 48px;
     }
-    .privacy-card h2 { margin-bottom: 8px; }
-    .privacy-card .sub {
-      font-size: 15px; font-weight: 300;
-      color: var(--stone); max-width: 500px;
-      margin-bottom: 36px;
+    .circle-card h3 { margin-bottom: 8px; }
+
+    /* CRISIS CALLOUT */
+    .crisis-card {
+      background: var(--cream);
+      border: 1px solid var(--border-m);
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 16px;
     }
-    .privacy-row {
+    .crisis-fields {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+      margin: 24px 0;
     }
-    .privacy-item {
+    .crisis-field {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 10px 12px;
       background: var(--off-white);
-      padding: 18px 20px;
-      display: flex; flex-direction: column; gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-align: center;
     }
-    .privacy-label { font-size: 13px; font-weight: 500; color: var(--ink); }
-    .privacy-desc { font-size: 12px; font-weight: 300; color: var(--stone); line-height: 1.5; }
-    .nutrition-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 400; color: var(--stone);
+
+    /* PRICING */
+    .pricing-card {
+      max-width: 460px;
+      margin: 0 auto;
       border: 1px solid var(--border-m);
-      border-radius: 4px; padding: 7px 12px;
-    }
-    .nutrition-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #4caf81; flex-shrink: 0;
-    }
-    .nutrition-tag strong { font-weight: 500; color: var(--ink); }
-    /* ── PRICING ── */
-    .pricing-wrap {
-      max-width: 400px; margin: 0 auto;
-      border: 1px solid var(--border-m);
-      border-radius: 12px; padding: 40px;
-      text-align: center; background: var(--cream);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      background: var(--cream);
     }
     .pricing-label {
       font-size: 11px; font-weight: 500;
       letter-spacing: 3px; text-transform: uppercase;
-      color: var(--stone); margin-bottom: 20px;
+      color: var(--stone); margin-bottom: 16px;
     }
     .pricing-price {
       font-family: var(--ff-display);
       font-style: italic;
-      font-size: 32px; color: var(--ink);
-      line-height: 1; margin-bottom: 4px;
+      font-size: 64px;
+      color: var(--ink);
+      line-height: 1; margin-bottom: 8px;
     }
-    .pricing-sub {
+    .pricing-deadline {
+      font-size: 13px; font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+    .pricing-after {
       font-size: 13px; font-weight: 300;
-      color: var(--stone); margin-bottom: 28px;
+      color: var(--stone); margin-bottom: 32px;
     }
     .pricing-divider { height: 1px; background: var(--border); margin: 24px 0; }
-    .pricing-list {
-      list-style: none; text-align: left;
-      display: flex; flex-direction: column;
-      gap: 10px; margin-bottom: 32px;
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin: 0 0 32px 0;
+      padding: 0;
     }
-    .pricing-list li {
+    .pricing-features li {
       display: flex; align-items: flex-start; gap: 10px;
-      font-size: 13px; font-weight: 300; color: var(--charcoal);
+      font-size: 14px; color: var(--charcoal);
+      margin-bottom: 10px;
+      padding-left: 0;
     }
-    .check {
-      width: 15px; height: 15px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0; margin-top: 2px;
-      display: flex; align-items: center; justify-content: center;
+    .pricing-features li::before { content: '·'; color: var(--accent); font-weight: 500; }
+    .pricing-card .btn-app-store { width: 100%; justify-content: center; }
+
+    /* FAQ */
+    .faq-list { margin-top: 24px; }
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
     }
-    .check::after {
-      content: ''; width: 5px; height: 3px;
-      border-left: 1.5px solid #fff;
-      border-bottom: 1.5px solid #fff;
-      transform: rotate(-45deg) translateY(-1px); display: block;
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 19px; font-weight: 400;
+      color: var(--ink); margin-bottom: 8px;
     }
-    .btn-soon {
-      display: block; width: 100%; padding: 13px;
-      background: var(--parchment); color: var(--stone);
-      font-family: var(--ff-body); font-size: 13px; font-weight: 500;
-      border: none; border-radius: 4px; text-align: center;
-      cursor: default; letter-spacing: 0.02em;
+    .faq-a { font-size: 15px; color: var(--charcoal); margin: 0; line-height: 1.7; }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      border-left: 2px solid var(--accent);
+      padding: 4px 0 4px 20px;
+      font-size: 14px;
+      color: var(--stone);
+      font-style: italic;
+      max-width: 680px;
     }
-    .pricing-note {
-      font-size: 11px; font-weight: 300;
-      color: var(--stone); margin-top: 12px;
-    }
-    /* ── BOTTOM CTA ── */
-    .cta-block {
-      background: var(--blush);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 56px 48px;
-      text-align: center;
-    }
-    .cta-block h2 { margin-bottom: 8px; }
-    .cta-block .cta-sub {
-      font-size: 16px; font-weight: 300;
-      color: var(--stone); margin-bottom: 28px;
-    }
-    .cta-block .waitlist-form { margin: 0 auto; }
-    .cta-block .success-msg { margin-top: 12px; }
-    /* ── FOOTER ── */
+
+    /* ABOUT */
+    .about p { font-size: 15px; max-width: 600px; }
+
+    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 32px 0; }
-    .footer-inner {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
-    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-left { display: flex; flex-direction: column; gap: 2px; }
-    .footer-brand {
-      font-family: var(--ff-display);
-      font-style: italic; font-size: 16px; color: var(--ink);
-    }
+    .footer-brand { font-family: var(--ff-display); font-style: italic; font-size: 16px; color: var(--ink); }
     .footer-copy { font-size: 11px; font-weight: 300; color: var(--stone); }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
-      font-size: 12px; font-weight: 400; color: var(--stone);
-      text-decoration: none; transition: color 0.15s;
-    }
+    .footer-links a { font-size: 12px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--ink); }
+
     @media (max-width: 720px) {
       section { padding: 64px 0; }
-      .hero { padding: 80px 0 64px; }
-      .moment { padding: 32px 24px; }
-      .privacy-card { padding: 32px 24px; }
-      .pillar { padding: 28px 24px; }
-      .pricing-wrap { padding: 32px 24px; }
-      .cta-block { padding: 40px 24px; }
+      .hero { padding: 64px 0 48px; }
+      .crisis-card { padding: 28px 24px; }
+      .pricing-card { padding: 36px 24px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .a  { animation: fadeUp 0.65s ease both; }
-    .d1 { animation-delay: 0.08s; }
-    .d2 { animation-delay: 0.16s; }
-    .d3 { animation-delay: 0.24s; }
-    .d4 { animation-delay: 0.32s; }
   </style>
 </head>
 <body>
+
   <nav>
     <div class="container">
       <div class="nav-inner">
-        <a class="nav-logo" href="#">MomKnows<span>!</span></a>
+        <div class="nav-left">
+          <a class="nav-back" href="/">← malikbanksnyc.com</a>
+          <a class="nav-logo" href="#hero">MomKnows<span>!</span></a>
+        </div>
         <ul class="nav-links">
-          <li><a href="#how">How it works</a></li>
+          <li><a href="#why">Why</a></li>
+          <li><a href="#capture">What it captures</a></li>
           <li><a href="#privacy">Privacy</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#notify" class="btn-nav">Get Notified</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow a">Coming Soon · iOS</p>
-      <h1 class="a d1">MomKnows<span class="exclaim">!</span></h1>
-      <p class="hero-tagline a d1">Family knowledge · preserved</p>
-      <p class="hero-lede a d2">
-        What happens when the person who knows everything<br>
-        <strong>isn't there to ask anymore?</strong>
-      </p>
-      <p class="hero-sub a d2">
-        MomKnows! is the app that helps you have the conversation while you still can —
-        capturing the practical, financial, and irreplaceable knowledge your family carries,
-        and preserving your own for the people who come after you.
-      </p>
-      <div class="waitlist-wrap a d3">
-        <div class="waitlist-form" id="heroForm">
-          <input type="email" id="heroEmail" placeholder="your@email.com" autocomplete="email">
-          <button onclick="handleSignup('heroEmail','heroSuccess','heroForm')">Notify Me</button>
-        </div>
-        <p class="success-msg" id="heroSuccess">You're on the list. We'll be in touch.</p>
-        <p class="price-note">One-time purchase · no subscription · pricing announced at launch</p>
-      </div>
-    </div>
-  </section>
-  <!-- THE MOMENT -->
-  <section>
-    <div class="container">
-      <div class="moment">
-        <p class="eyebrow" style="margin-bottom:20px;">Why it matters</p>
-        <h2 style="margin-bottom:8px;">You don't know<br>what you don't know.</h2>
-        <p style="font-size:15px;font-weight:300;color:var(--stone);max-width:520px;margin-bottom:36px;">Until the moment you need it. These are the situations MomKnows! is built for.</p>
-        <div class="moment-scenarios">
-          <div class="scenario">
-            <div class="scenario-icon">🏥</div>
-            <p>Mom is in the ER. The nurse asks what medications she takes. <strong>You're not sure.</strong></p>
-          </div>
-          <div class="scenario">
-            <div class="scenario-icon">🏠</div>
-            <p>There's a leak. Nobody knows where the water shut-off is. <strong>Dad always handled that.</strong></p>
-          </div>
-          <div class="scenario">
-            <div class="scenario-icon">💳</div>
-            <p>Settling the estate takes months because <strong>nobody knew which accounts existed</strong> or where the documents were.</p>
-          </div>
-          <div class="scenario">
-            <div class="scenario-icon">🫶</div>
-            <p>Grandma's recipes. Her stories. The things only she knew. <strong>Now they exist only in memory.</strong></p>
-          </div>
-        </div>
-        <p class="moment-close">MomKnows! turns these conversations into a record — <span>before you need one.</span></p>
-      </div>
-    </div>
-  </section>
-  <!-- HOW IT WORKS -->
-  <section id="how">
-    <div class="container">
-      <p class="eyebrow">How it works</p>
-      <h2>Ask. Record. Keep.</h2>
-      <p class="section-sub">Works in both directions — capture what your family knows, and build your own record for the people who come after you.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <span class="pillar-num">01</span>
-          <p class="pillar-tag">Ask</p>
-          <h3>The right questions, ready to go</h3>
-          <p>200 guided questions across 5 categories — health, finances, household, emergency contacts, and family traditions. We thought of what to ask so you don't have to figure it out in the moment.</p>
-        </div>
-        <div class="pillar">
-          <span class="pillar-num">02</span>
-          <p class="pillar-tag">My Life Profile</p>
-          <h3>Your own record, on your terms</h3>
-          <p>Build a complete personal profile — medical history, accounts, insurance, emergency contacts. The information your family will need, organized and ready, entirely on your device.</p>
-        </div>
-        <div class="pillar">
-          <span class="pillar-num">03</span>
-          <p class="pillar-tag">Export</p>
-          <h3>Share it or lock it down</h3>
-          <p>Export a clean PDF to print or share with family. Or create an AES-256 encrypted local backup. No cloud, no account — just a file you control.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- PRIVACY -->
-  <section id="privacy">
-    <div class="container">
-      <div class="privacy-card">
-        <p class="eyebrow" style="margin-bottom:16px;">Privacy</p>
-        <h2>This is your family's<br>most sensitive information.</h2>
-        <p class="sub">We treat it that way. MomKnows! has no backend, no account, and makes zero network calls. Everything stays on your device — period.</p>
-        <div class="privacy-row">
-          <div class="privacy-item">
-            <span class="privacy-label">Zero network calls</span>
-            <span class="privacy-desc">No outbound requests. Ever.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">iOS Keychain</span>
-            <span class="privacy-desc">Sensitive fields encrypted by the OS.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">No third-party SDKs</span>
-            <span class="privacy-desc">No analytics, ads, or tracking of any kind.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">AES-256 backup</span>
-            <span class="privacy-desc">Encrypted export. Fully yours.</span>
-          </div>
-        </div>
-        <div class="nutrition-tag">
-          <div class="nutrition-dot"></div>
-          App Store Privacy Label: <strong>&nbsp;Data Not Collected</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="container">
-      <div class="pricing-wrap">
-        <p class="pricing-label">Pricing</p>
-        <p class="pricing-price">Pay once. Own it.</p>
-        <p class="pricing-sub">No subscription. No account. Pricing announced at launch.</p>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-list">
-          <li><span class="check"></span>200 guided questions across 5 categories</li>
-          <li><span class="check"></span>Capture from anyone — parents, grandparents, yourself</li>
-          <li><span class="check"></span>My Life Profile — your personal record</li>
-          <li><span class="check"></span>PDF export for printing or sharing</li>
-          <li><span class="check"></span>AES-256 encrypted local backup</li>
-          <li><span class="check"></span>Zero network calls · no account required</li>
-          <li><span class="check"></span>All future updates included</li>
-        </ul>
-        <div class="btn-soon">Coming Soon on the App Store</div>
-        <p class="pricing-note">iPhone &amp; iPad · iOS 16+</p>
-      </div>
-    </div>
-  </section>
-  <!-- BOTTOM CTA -->
-  <section id="notify">
-    <div class="container">
-      <div class="cta-block">
-        <h2>Don't wait for<br>the moment to pass.</h2>
-        <p class="cta-sub">MomKnows! is coming soon. Be first to know when it's ready.</p>
-        <div class="waitlist-form" id="bottomForm">
-          <input type="email" id="bottomEmail" placeholder="your@email.com" autocomplete="email">
-          <button onclick="handleSignup('bottomEmail','bottomSuccess','bottomForm')">Notify Me</button>
-        </div>
-        <p class="success-msg" id="bottomSuccess">You're on the list. Talk soon.</p>
-      </div>
-    </div>
-  </section>
-  <!-- FOOTER -->
+
+  <section id="hero" class="hero"></section>
+  <section id="why"></section>
+  <section id="capture"></section>
+  <section id="crisis"></section>
+  <section id="voice-stories"></section>
+  <section id="privacy"></section>
+  <section id="pricing"></section>
+  <section id="about" class="about"></section>
+  <section id="faq"></section>
+  <section id="disclaimer"></section>
+
   <footer>
     <div class="container">
       <div class="footer-inner">
         <div class="footer-left">
           <span class="footer-brand">MomKnows!</span>
-          <span class="footer-copy">&copy; 2026 Shabaka Malik Banks · New York City</span>
+          <span class="footer-copy">&copy; 2026 Bleek Vision LLC · New York City</span>
         </div>
         <div class="footer-links">
-          <a href="https://malikbanksnyc.com/privacy">Privacy Policy</a>
+          <a href="/momknows-privacy">Privacy Policy</a>
           <a href="mailto:malikbanksnyc@gmail.com">Contact</a>
-          <a href="https://malikbanksnyc.com">malikbanksnyc.com</a>
+          <a href="/">malikbanksnyc.com</a>
         </div>
       </div>
     </div>
   </footer>
-  <iframe name="gform-iframe" style="display:none;"></iframe>
-  <script>
-    function handleSignup(inputId, successId, formId) {
-      const email = document.getElementById(inputId).value.trim();
-      if (!email || !email.includes('@')) {
-        document.getElementById(inputId).focus();
-        return;
-      }
-      var form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfy5q5NtXqXQW7BhikiTZ-93ezW0VhE7N07LQNkqmMwjniQcQ/formResponse';
-      form.target = 'gform-iframe';
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'entry.716920225';
-      input.value = email;
-      form.appendChild(input);
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-      document.getElementById(formId).style.display = 'none';
-      document.getElementById(successId).style.display = 'block';
-    }
-    document.querySelectorAll('.waitlist-form input').forEach(input => {
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') this.nextElementSibling.click();
-      });
-    });
-  </script>
+
 </body>
 </html>
