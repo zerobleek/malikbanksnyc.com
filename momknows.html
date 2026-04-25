@@ -418,9 +418,53 @@
       </div>
     </div>
   </section>
-  <section id="crisis"></section>
-  <section id="voice-stories"></section>
-  <section id="privacy"></section>
+  <section id="crisis">
+    <div class="container">
+      <p class="eyebrow">Crisis View</p>
+      <h2>One long-press<br>from a hold-up-to-the-paramedic screen.</h2>
+      <div class="prose">
+        <p>This is the feature that earns the app its place on the home screen. From anywhere inside MomKnows!, a single long-press surfaces the Crisis View — the information a stranger needs to make decisions about a person they don't know. Large type. High contrast. Built to be read across an ER intake desk.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-fields">
+          <div class="crisis-field">Blood Type</div>
+          <div class="crisis-field">Allergies</div>
+          <div class="crisis-field">Medications</div>
+          <div class="crisis-field">Preferred Hospital</div>
+          <div class="crisis-field">Healthcare Proxy</div>
+          <div class="crisis-field">Power of Attorney</div>
+          <div class="crisis-field">Insurance</div>
+          <div class="crisis-field">Advance Directive</div>
+        </div>
+        <div class="prose">
+          <p>Every contact is tap-to-call. Healthcare proxy and POA can be reached in one motion. The screen is designed to be useful when whoever's reading it has thirty seconds and is wearing gloves.</p>
+          <p><strong>Emergency Packet PDF.</strong> When sharing matters more than holding the phone up, export a clean two-page PDF formatted for the glove compartment or the bedside drawer. Identity and medical on page one. Contacts on page two. One tap from the Crisis View. Send it to a sibling who doesn't use the app, leave it with a caregiver, fold it into a will.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="voice-stories">
+    <div class="container">
+      <p class="eyebrow">Voice &amp; Stories</p>
+      <h2>Some answers don't fit a form.</h2>
+      <div class="prose">
+        <p><strong>Voice dictation, on-device only.</strong> Every long-answer field accepts spoken input, transcribed entirely on your device using Apple's Speech framework. Audio never leaves the phone. If your device or your language can't run on-device recognition, the app turns dictation off — it does not fall back to cloud transcription. The trade-off is intentional: a feature that protects your privacy by being absent is more honest than one that quietly compromises it.</p>
+        <p><strong>Stories.</strong> A voice memory of your father's laugh telling the same joke for the fortieth time. The exact way your grandmother pronounced the name of the village she came from. The recipe nobody wrote down because nobody thought it could be lost. Stories captures the things that don't belong in a category — the inherited wisdom that makes a family a family.</p>
+        <p>Photos, videos, and audio recordings can attach to any story or any answer. Everything stays on the device, or — if you choose — on an external USB drive of your own. The app never asks for cloud permissions to do this. It uses the iOS document picker, and it goes where you point it.</p>
+      </div>
+    </div>
+  </section>
+  <section id="privacy">
+    <div class="container">
+      <p class="eyebrow">Privacy as architecture</p>
+      <h2>Privacy isn't a posture.<br>It's how the app is built.</h2>
+      <div class="prose">
+        <p>MomKnows! is not "privacy-first" as a marketing claim. It is privacy-first as an architectural fact. There are no accounts — there's nothing to register, no email to verify, no password to lose. There are no servers, no cloud sync, no iCloud sync, and no third-party backends. There are no analytics SDKs, no crash reporters, and no tracking libraries embedded in the build. The App Store privacy label reads <strong>"Data Not Collected"</strong> across every category Apple defines. That label is verifiable with any network inspector you point at the app.</p>
+        <p>Sensitive fields — insurance numbers, account credentials, anything you mark as protected — are stored in the iOS Keychain with the device-bound accessibility class. They never sync through iCloud Keychain, even if you have iCloud Keychain enabled on your device. The whole app sits behind biometric unlock — Face ID, Touch ID, or PIN fallback — and biometric authentication runs entirely through Apple's LocalAuthentication framework. Your biometric template never leaves the Secure Enclave.</p>
+        <p>The only network activity MomKnows! ever triggers is Apple's StoreKit purchase flow, run by iOS, when you buy the app. We never see your payment method. We never see your Apple Account. We never see your name. The full architecture — every framework used, every accessibility class set, every cryptographic primitive — is documented in the <a class="inline-link" href="/momknows-privacy">privacy policy</a>.</p>
+      </div>
+    </div>
+  </section>
   <section id="pricing"></section>
   <section id="about" class="about"></section>
   <section id="faq"></section>
