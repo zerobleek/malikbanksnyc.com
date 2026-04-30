@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MomKnows! Privacy Policy — Bleek Vision LLC</title>
     <meta name="description" content="MomKnows! collects nothing about you. No accounts, no servers, no analytics, no third-party SDKs. Everything stays on your device.">
+    <meta name="robots" content="index, follow">
     <meta property="og:title" content="MomKnows! Privacy Policy">
     <meta property="og:description" content="A privacy policy for an app that holds no data about you. Effective April 23, 2026.">
-    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://malikbanksnyc.com/momknows-privacy">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,6 @@
         a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
         a:hover { opacity: 0.7; }
 
-        /* NAV */
         nav {
             position: sticky;
             top: 0;
@@ -66,11 +65,7 @@
             color: var(--text);
             text-decoration: none;
         }
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
         .nav-links a {
             font-size: 13px;
             font-weight: 400;
@@ -82,14 +77,12 @@
         .nav-links a:hover { color: var(--text); }
         @media (max-width: 600px) { .nav-links { display: none; } }
 
-        /* CONTAINER */
         .container {
             max-width: 980px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* PAGE HEADER */
         .page-header {
             padding: 64px 0 48px;
             border-bottom: 1px solid var(--border);
@@ -119,7 +112,6 @@
         }
         .page-meta a { color: var(--muted); }
 
-        /* TWO-COL LAYOUT */
         .two-col {
             display: flex;
             gap: 48px;
@@ -146,17 +138,13 @@
             transition: color 0.18s;
         }
         .sidebar a:hover { color: var(--text); }
-        .prose {
-            flex: 1;
-            min-width: 0;
-        }
+        .prose { flex: 1; min-width: 0; }
         @media (max-width: 768px) {
             .two-col { flex-direction: column; gap: 32px; }
             .sidebar { width: 100%; position: static; }
             .sidebar ul { flex-direction: row; flex-wrap: wrap; gap: 8px 16px; }
         }
 
-        /* PROSE */
         .prose h2 {
             font-family: var(--ff-display);
             font-style: italic;
@@ -167,8 +155,10 @@
             margin-bottom: 16px;
             padding-top: 32px;
             border-top: 1px solid var(--border);
+            scroll-margin-top: 80px;
         }
-        .prose h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+        .prose > p:first-child + h2,
+        .prose h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
         .prose p {
             color: var(--muted);
             margin-bottom: 16px;
@@ -180,18 +170,17 @@
             margin-left: 20px;
             line-height: 1.8;
         }
-        .prose li { margin-bottom: 6px; }
+        .prose ul li { margin-bottom: 6px; }
         .prose strong { font-weight: 500; color: var(--text); }
         .prose code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.92em;
-            background: rgba(0,0,0,0.04);
+            font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+            font-size: 13px;
+            background: var(--border);
             padding: 1px 6px;
             border-radius: 3px;
             color: var(--text);
         }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid var(--border);
             padding: 32px 0;
@@ -206,15 +195,8 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        .footer-copy {
-            font-size: 12px;
-            font-weight: 300;
-            color: var(--muted);
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
+        .footer-copy { font-size: 12px; font-weight: 300; color: var(--muted); }
+        .footer-links { display: flex; gap: 24px; }
         .footer-links a {
             font-size: 12px;
             font-weight: 400;
@@ -227,31 +209,28 @@
 </head>
 <body>
 
-    <!-- NAV -->
     <nav>
         <div class="nav-inner">
             <a class="nav-logo" href="/">malikbanksnyc.com</a>
             <ul class="nav-links">
-                <li><a href="/momknows">MomKnows!</a></li>
                 <li><a href="/#work">Work</a></li>
+                <li><a href="/#about">About</a></li>
                 <li><a href="mailto:malikbanksnyc@gmail.com">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- PAGE HEADER -->
     <div class="container">
         <div class="page-header">
-            <p class="page-eyebrow">MomKnows! · Legal</p>
+            <p class="page-eyebrow">MomKnows!</p>
             <h1>Privacy Policy</h1>
             <p class="page-meta">
-                <strong>Effective April 23, 2026 · Version 1.0</strong><br>
-                Published by <strong>Bleek Vision LLC</strong><br>
+                <strong>Effective April 23, 2026.</strong> Version 1.0.<br>
+                Published by Bleek Vision LLC.<br>
                 Contact: <a href="mailto:malikbanksnyc@gmail.com">malikbanksnyc@gmail.com</a>
             </p>
         </div>
 
-        <!-- TWO-COL -->
         <div class="two-col">
             <aside class="sidebar">
                 <ul>
@@ -259,22 +238,20 @@
                     <li><a href="#who-we-are">Who we are</a></li>
                     <li><a href="#what-this-policy-covers">What this policy covers</a></li>
                     <li><a href="#what-we-do-not-collect">What we do not collect</a></li>
-                    <li><a href="#what-the-app-stores-on-your-device">What the app stores on your device</a></li>
-                    <li><a href="#permissions-the-app-requests">Permissions</a></li>
-                    <li><a href="#encryption-and-on-device-security">Encryption</a></li>
-                    <li><a href="#backups-you-create">Backups you create</a></li>
+                    <li><a href="#what-the-app-stores">What the app stores on your device</a></li>
+                    <li><a href="#permissions">Permissions the app requests</a></li>
+                    <li><a href="#encryption">Encryption and on-device security</a></li>
+                    <li><a href="#backups">Backups you create</a></li>
                     <li><a href="#apples-role">Apple's role</a></li>
                     <li><a href="#children">Children</a></li>
                     <li><a href="#your-rights">Your rights</a></li>
-                    <li><a href="#changes-to-this-policy">Changes</a></li>
+                    <li><a href="#changes">Changes to this policy</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#effective-date-and-version">Effective date</a></li>
+                    <li><a href="#effective-date">Effective date and version</a></li>
                 </ul>
             </aside>
 
             <div class="prose">
-
-<p><strong>Effective date: April 23, 2026. Version 1.0.</strong></p>
 <h2 id="summary">Summary</h2>
 <p>MomKnows! collects nothing about you. No analytics, no crash reporters, no accounts, no third-party SDKs, and no outbound network traffic from the app. Everything you put into MomKnows! stays on your device. The only network activity during your lifetime with the app is Apple's purchase flow when you buy the app, which Apple runs — we do not observe, record, or transmit anything about it. This policy explains that posture in full.</p>
 <h2 id="who-we-are">Who we are</h2>
@@ -284,43 +261,43 @@
 <h2 id="what-we-do-not-collect">What we do not collect</h2>
 <p>MomKnows! is designed so that Bleek Vision LLC never comes into possession of your information. Specifically, the app does not collect or transmit:</p>
 <ul>
-  <li>Personal information of any kind — no name, email, phone number, address, or other identifier you provide to us.</li>
-  <li>Account credentials — the app has no accounts and no login.</li>
-  <li>Device identifiers — no advertising identifier (IDFA), no vendor identifier, no fingerprinting.</li>
-  <li>Usage analytics — no sessions, no screen views, no feature-usage telemetry, and no first-party or third-party analytics SDK is embedded.</li>
-  <li>Crash reports — no crash reporter is embedded. If the app crashes, the report exists only in Apple's per-device crash logs, which you may choose to share with Apple; we receive nothing from that channel.</li>
-  <li>Location — the app does not request or use location services.</li>
-  <li>Contacts, calendar, reminders, or any other system data that would require explicit permission beyond the specific permissions listed below.</li>
-  <li>Network traffic from the app itself — the app makes no outbound network requests to Bleek Vision LLC, to any third party, or to any analytics, logging, advertising, or marketing service. This is an architectural fact verifiable with any network inspector.</li>
+    <li>Personal information of any kind — no name, email, phone number, address, or other identifier you provide to us.</li>
+    <li>Account credentials — the app has no accounts and no login.</li>
+    <li>Device identifiers — no advertising identifier (IDFA), no vendor identifier, no fingerprinting.</li>
+    <li>Usage analytics — no sessions, no screen views, no feature-usage telemetry, and no first-party or third-party analytics SDK is embedded.</li>
+    <li>Crash reports — no crash reporter is embedded. If the app crashes, the report exists only in Apple's per-device crash logs, which you may choose to share with Apple; we receive nothing from that channel.</li>
+    <li>Location — the app does not request or use location services.</li>
+    <li>Contacts, calendar, reminders, or any other system data that would require explicit permission beyond the specific permissions listed below.</li>
+    <li>Network traffic from the app itself — the app makes no outbound network requests to Bleek Vision LLC, to any third party, or to any analytics, logging, advertising, or marketing service. This is an architectural fact verifiable with any network inspector.</li>
 </ul>
 <p>The App Store privacy label for MomKnows! is <strong>"Data Not Collected"</strong> across every category defined by Apple. That label is accurate.</p>
 <p>One narrow exception applies: when you purchase the app, your device communicates with Apple's StoreKit service to process the transaction. That purchase flow is operated entirely by Apple. MomKnows! does not observe, record, or transmit anything about your purchase, and Bleek Vision LLC receives only the aggregate, anonymized sales reports that Apple provides to every App Store developer. We never see your payment method, your Apple Account, or your identity.</p>
-<h2 id="what-the-app-stores-on-your-device">What the app stores on your device</h2>
+<h2 id="what-the-app-stores">What the app stores on your device</h2>
 <p>Everything you enter into MomKnows! — family members' names, medications, contacts, stories, photos, videos, audio recordings, and any other content you capture — is stored locally on your iPhone or iPad. The app uses two on-device stores:</p>
 <ul>
-  <li><strong>Local SwiftData storage</strong> for structured content (the Circle of people you are preserving information for, the answers you capture, and the stories you record).</li>
-  <li><strong>The iOS Keychain</strong> for sensitive individual fields such as insurance policy numbers. Keychain items are stored with the accessibility class <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>, which means they are bound to your specific device and do not sync through iCloud Keychain.</li>
+    <li><strong>Local SwiftData storage</strong> for structured content (the Circle of people you are preserving information for, the answers you capture, and the stories you record).</li>
+    <li><strong>The iOS Keychain</strong> for sensitive individual fields such as insurance policy numbers. Keychain items are stored with the accessibility class <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>, which means they are bound to your specific device and do not sync through iCloud Keychain.</li>
 </ul>
 <p><strong>Retention.</strong> Your data remains on your device for as long as you keep MomKnows! installed.</p>
 <p><strong>Deletion.</strong> Deleting the app from your device removes all data it has stored locally. If you have created an encrypted backup (see below) and saved it outside the app, deleting the app will not automatically delete that file — it remains wherever you saved it until you delete it yourself.</p>
-<h2 id="permissions-the-app-requests">Permissions the app requests</h2>
+<h2 id="permissions">Permissions the app requests</h2>
 <p>MomKnows! asks for the following iOS permissions only at the moment you try to use the related feature. You can decline any of them and still use the rest of the app.</p>
 <ul>
-  <li><strong>Face ID / Touch ID.</strong> Used to unlock the app if you enable biometric lock. Biometric authentication is handled by Apple's LocalAuthentication framework; your biometric template never leaves Apple's Secure Enclave and is never shared with the app or with us.</li>
-  <li><strong>Microphone.</strong> Used when you record audio directly inside the app, or when you use dictation to transcribe a longer answer.</li>
-  <li><strong>Speech Recognition.</strong> Used for on-device dictation via Apple's Speech framework. The app uses the <code>requiresOnDeviceRecognition = true</code> setting, meaning audio never leaves your device for recognition. If your device or locale does not support on-device recognition, dictation is disabled — the app does not fall back to cloud-based recognition.</li>
-  <li><strong>Camera.</strong> Used when you capture a photo or video directly inside the app.</li>
-  <li><strong>Photo Library.</strong> Used when you attach an existing photo or video from your library.</li>
+    <li><strong>Face ID / Touch ID.</strong> Used to unlock the app if you enable biometric lock. Biometric authentication is handled by Apple's LocalAuthentication framework; your biometric template never leaves Apple's Secure Enclave and is never shared with the app or with us.</li>
+    <li><strong>Microphone.</strong> Used when you record audio directly inside the app, or when you use dictation to transcribe a longer answer.</li>
+    <li><strong>Speech Recognition.</strong> Used for on-device dictation via Apple's Speech framework. The app uses the <code>requiresOnDeviceRecognition = true</code> setting, meaning audio never leaves your device for recognition. If your device or locale does not support on-device recognition, dictation is disabled — the app does not fall back to cloud-based recognition.</li>
+    <li><strong>Camera.</strong> Used when you capture a photo or video directly inside the app.</li>
+    <li><strong>Photo Library.</strong> Used when you attach an existing photo or video from your library.</li>
 </ul>
-<h2 id="encryption-and-on-device-security">Encryption and on-device security</h2>
+<h2 id="encryption">Encryption and on-device security</h2>
 <p>MomKnows! uses Apple frameworks exclusively for all cryptography. No third-party cryptographic libraries are embedded.</p>
 <ul>
-  <li><strong>Encrypted backup files</strong> are encrypted with AES-256-GCM via Apple's CryptoKit framework.</li>
-  <li><strong>Key derivation</strong> for the backup passphrase uses PBKDF2-HMAC-SHA256 via Apple's CommonCrypto, with 100,000 iterations and a 16-byte random salt generated per backup.</li>
-  <li><strong>Keychain storage</strong> for sensitive fields uses the accessibility class described above; these items are device-bound and do not sync.</li>
-  <li><strong>Biometric unlock</strong> uses Apple's LocalAuthentication framework. Your biometric data never leaves the Secure Enclave.</li>
+    <li><strong>Encrypted backup files</strong> are encrypted with AES-256-GCM via Apple's CryptoKit framework.</li>
+    <li><strong>Key derivation</strong> for the backup passphrase uses PBKDF2-HMAC-SHA256 via Apple's CommonCrypto, with 100,000 iterations and a 16-byte random salt generated per backup.</li>
+    <li><strong>Keychain storage</strong> for sensitive fields uses the accessibility class described above; these items are device-bound and do not sync.</li>
+    <li><strong>Biometric unlock</strong> uses Apple's LocalAuthentication framework. Your biometric data never leaves the Secure Enclave.</li>
 </ul>
-<h2 id="backups-you-create">Backups you create</h2>
+<h2 id="backups">Backups you create</h2>
 <p>MomKnows! lets you create an encrypted backup file of your data. You choose the passphrase. The passphrase is never stored inside the app, never transmitted anywhere, and is not recoverable by Bleek Vision LLC — not by technical means, not by request. If you lose the passphrase, your backup cannot be decrypted. That is a deliberate design choice: it is the mechanism that keeps your backup file unreadable to anyone who is not you, including us.</p>
 <p>When you export the backup file, you choose where it goes — iCloud Drive, a USB-C drive, another Files provider, or anywhere else iOS's document picker can reach. The app writes the file at your explicit instruction using iOS security-scoped bookmarks. No cloud service of ours is involved.</p>
 <h2 id="apples-role">Apple's role</h2>
@@ -331,33 +308,31 @@
 <p>Privacy laws in the European Union (GDPR), the United Kingdom (UK GDPR), and California (CCPA / CPRA) give you rights regarding personal data that a company holds about you — including the right to access, correct, delete, and receive a portable copy of that data.</p>
 <p>Those rights are satisfied in the case of MomKnows! because <strong>Bleek Vision LLC holds no personal data about you.</strong> There is nothing to access, correct, delete, or transfer on our side, because nothing was ever transmitted to us. The data you care about lives on your device, under your control:</p>
 <ul>
-  <li><strong>Access</strong> your data by opening the app.</li>
-  <li><strong>Correct</strong> your data by editing it inside the app.</li>
-  <li><strong>Delete</strong> your data by deleting individual entries, or by deleting the app, which removes all locally-stored data.</li>
-  <li><strong>Portability.</strong> Use the app's export features (PDF, Notes, or the encrypted backup file) to move your data wherever you choose.</li>
+    <li><strong>Access</strong> your data by opening the app.</li>
+    <li><strong>Correct</strong> your data by editing it inside the app.</li>
+    <li><strong>Delete</strong> your data by deleting individual entries, or by deleting the app, which removes all locally-stored data.</li>
+    <li><strong>Portability.</strong> Use the app's export features (PDF, Notes, or the encrypted backup file) to move your data wherever you choose.</li>
 </ul>
 <p>If you believe we hold data about you and wish to exercise any of these rights against Bleek Vision LLC directly, email <a href="mailto:malikbanksnyc@gmail.com">malikbanksnyc@gmail.com</a>. We will respond within 30 days. Our honest answer will, in every case we can currently imagine, be that we hold no such data.</p>
 <p>Bleek Vision LLC does not meet the regulatory thresholds requiring a Data Protection Officer and does not have one. The email address above reaches Shabaka Malik Banks directly.</p>
-<h2 id="changes-to-this-policy">Changes to this policy</h2>
+<h2 id="changes">Changes to this policy</h2>
 <p>If we change this policy, we will post the updated version at this URL with a new effective date, and we will surface a notice inside the next version of the app you install. Material changes — for example, any feature that introduces network activity or third-party services — will be announced prominently both in-app and on this page. Earlier drafts of this policy were published during the app's development under a working name at <code>/ask-mom-privacy</code>; this URL supersedes that location.</p>
 <h2 id="contact">Contact</h2>
 <p>Questions about this policy, the app's privacy posture, or a security concern you would like to raise should be directed to:</p>
 <p><strong>Shabaka Malik Banks, Bleek Vision LLC</strong><br>
 <a href="mailto:malikbanksnyc@gmail.com">malikbanksnyc@gmail.com</a></p>
-<h2 id="effective-date-and-version">Effective date and version</h2>
+<h2 id="effective-date">Effective date and version</h2>
 <p>This policy is effective <strong>April 23, 2026</strong>. Current version: <strong>1.0</strong>.</p>
-
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
             <span class="footer-copy">&copy; 2026 Bleek Vision LLC</span>
             <div class="footer-links">
+                <a href="/terms">Terms of Use</a>
                 <a href="/momknows">MomKnows!</a>
-                <a href="/privacy">Other apps' privacy</a>
                 <a href="/">malikbanksnyc.com</a>
             </div>
         </div>

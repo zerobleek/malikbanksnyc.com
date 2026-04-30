@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MomKnows! — A private operational vault for your family</title>
-  <meta name="description" content="MomKnows! is an iOS app that captures the practical knowledge your family carries — medications, accounts, contacts, instructions — before you need it. On-device. No accounts. No servers.">
-  <meta property="og:title" content="MomKnows! — A private operational vault for your family">
-  <meta property="og:description" content="Capture the practical knowledge your parents carry — medications, accounts, contacts, instructions — before you need it. iOS only. $29 intro price for a limited time.">
+  <title>MomKnows! — A private operational handoff for your family</title>
+  <meta name="description" content="MomKnows! is the iOS app for capturing the operational knowledge your parents carry. No accounts, no servers, no cloud. $29 launch pricing through June 15, 2026.">
+  <meta property="og:title" content="MomKnows!">
+  <meta property="og:description" content="A private, structured way to capture what your parents know — before it's needed. iOS only. One-time purchase. No subscription.">
   <link rel="canonical" href="https://malikbanksnyc.com/momknows">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     a { color: inherit; }
+    img, svg, figure { display: block; max-width: 100%; }
+
     :root {
       --ink:       #1a1a18;
       --charcoal:  #3d3c38;
@@ -43,6 +45,7 @@
         --border-m:  rgba(240,236,228,0.18);
       }
     }
+
     html { scroll-behavior: smooth; }
     body {
       background: var(--off-white);
@@ -57,7 +60,7 @@
     section { padding: 88px 0; }
     section + section { border-top: 1px solid var(--border); }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 50;
       background: var(--off-white);
@@ -65,39 +68,18 @@
       padding: 16px 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 20px;
-      color: var(--ink);
-      text-decoration: none;
-    }
+    .nav-left { display: flex; align-items: center; gap: 24px; }
+    .nav-back { font-size: 13px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
+    .nav-back:hover { color: var(--ink); }
+    .nav-logo { font-family: var(--ff-display); font-style: italic; font-size: 20px; color: var(--ink); text-decoration: none; }
     .nav-logo span { color: var(--accent); font-style: normal; }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a {
-      font-size: 13px; font-weight: 400; color: var(--stone);
-      text-decoration: none; transition: color 0.15s;
-    }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--ink); }
-    .btn-nav {
-      background: var(--accent) !important;
-      color: #fff !important;
-      padding: 8px 16px; border-radius: 4px; font-weight: 500 !important;
-    }
-    @media (max-width: 600px) { .nav-links { display: none; } }
+    .btn-nav { background: var(--accent) !important; color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: 500 !important; }
+    @media (max-width: 720px) { .nav-links { display: none; } }
 
-    /* ── HERO ── */
-    .hero { padding: 104px 0 80px; border-top: none; }
-    .eyebrow {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 4px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 24px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .eyebrow::before {
-      content: ''; width: 20px; height: 1px;
-      background: var(--accent); display: block;
-    }
+    /* TYPOGRAPHY */
     h1 {
       font-family: var(--ff-display);
       font-style: italic;
@@ -109,101 +91,105 @@
       margin-bottom: 8px;
     }
     h1 .exclaim { color: var(--accent); font-style: normal; }
-    .hero-tagline {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: clamp(17px, 2.5vw, 23px);
-      color: var(--stone);
-      margin-bottom: 36px;
-    }
-    .hero-lede {
-      font-size: 19px;
-      font-weight: 300;
-      color: var(--charcoal);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .hero-lede strong { font-weight: 500; color: var(--ink); }
-    .hero-sub {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--stone);
-      max-width: 520px;
-      margin-bottom: 36px;
-      line-height: 1.65;
-    }
-
-    /* ── APP STORE CTA ── */
-    .cta-row {
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    .btn-app-store {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--ink); color: var(--off-white);
-      padding: 14px 22px; border-radius: 6px;
-      font-family: var(--ff-body); font-size: 14px; font-weight: 500;
-      text-decoration: none; letter-spacing: 0.01em;
-      transition: opacity 0.15s;
-    }
-    .btn-app-store:hover { opacity: 0.85; }
-    .btn-app-store::before {
-      content: ''; width: 16px; height: 18px;
-      background: currentColor;
-      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><path d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/></svg>") center / contain no-repeat;
-              mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><path d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/></svg>") center / contain no-repeat;
-    }
-    .cta-meta {
-      font-size: 12px; font-weight: 400;
-      color: var(--stone);
-    }
-
-    /* ── HERO FIGURE ── */
-    .hero-figure {
-      margin-top: 48px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      aspect-ratio: 16 / 9;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .hero-figure img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .hero-figure:empty::after,
-    .hero-figure img[src*="placeholder"] {
-      opacity: 0.35;
-    }
-
-    /* ── HEADINGS ── */
     h2 {
       font-family: var(--ff-display);
       font-style: italic;
       font-size: clamp(28px, 4vw, 42px);
       font-weight: 400;
       color: var(--ink);
-      line-height: 1.1;
-      margin-bottom: 16px;
+      line-height: 1.15;
+      margin-bottom: 24px;
     }
-    .section-sub {
-      font-size: 16px; font-weight: 300;
-      color: var(--stone); max-width: 560px;
-      margin-bottom: 40px; line-height: 1.7;
+    h3 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
     }
-    .body-p {
-      font-size: 16px; font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.8;
-      max-width: 680px;
-      margin-bottom: 18px;
+    h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
     }
-    .body-p strong { font-weight: 500; color: var(--ink); }
-    .body-p + .body-p { margin-top: -2px; }
+    p { margin-bottom: 18px; line-height: 1.75; color: var(--charcoal); }
+    p strong { font-weight: 500; color: var(--ink); }
+    ul, ol { margin: 0 0 18px 20px; line-height: 1.75; color: var(--charcoal); }
+    ul li, ol li { margin-bottom: 6px; }
+    a.inline-link { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
-    /* ── CATEGORIES (capture) ── */
+    .eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .eyebrow::before {
+      content: ''; width: 20px; height: 1px;
+      background: var(--accent); display: block;
+    }
+
+    /* HERO */
+    .hero { padding: 96px 0 80px; border-top: none; }
+    .hero-tagline {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--stone);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+    .hero-lede {
+      font-size: 18px;
+      color: var(--charcoal);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 48px; }
+    .hero-figure {
+      max-width: 720px;
+      margin-top: 16px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-figure img { width: 100%; height: 100%; object-fit: contain; opacity: 0.5; }
+
+    /* APP STORE BUTTON */
+    .btn-app-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--off-white);
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-app-store:hover { opacity: 0.85; }
+    .btn-app-store::before {
+      content: '';
+      width: 16px; height: 16px;
+      background: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.05 12.04c-.03-3.13 2.55-4.63 2.66-4.71-1.45-2.13-3.71-2.42-4.51-2.46-1.92-.19-3.74 1.13-4.72 1.13-.97 0-2.47-1.1-4.06-1.07-2.09.03-4.02 1.21-5.09 3.07-2.17 3.77-.55 9.34 1.56 12.4 1.03 1.5 2.26 3.18 3.86 3.12 1.55-.06 2.14-1 4.02-1 1.87 0 2.41 1 4.05.97 1.67-.03 2.73-1.52 3.75-3.03 1.18-1.74 1.67-3.42 1.7-3.51-.04-.02-3.26-1.25-3.29-4.95zM14.65 3.69c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.39-1.3 3.81 1.37.11 2.78-.7 3.63-1.75z'/%3E%3C/svg%3E") center/contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.05 12.04c-.03-3.13 2.55-4.63 2.66-4.71-1.45-2.13-3.71-2.42-4.51-2.46-1.92-.19-3.74 1.13-4.72 1.13-.97 0-2.47-1.1-4.06-1.07-2.09.03-4.02 1.21-5.09 3.07-2.17 3.77-.55 9.34 1.56 12.4 1.03 1.5 2.26 3.18 3.86 3.12 1.55-.06 2.14-1 4.02-1 1.87 0 2.41 1 4.05.97 1.67-.03 2.73-1.52 3.75-3.03 1.18-1.74 1.67-3.42 1.7-3.51-.04-.02-3.26-1.25-3.29-4.95zM14.65 3.69c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.39-1.3 3.81 1.37.11 2.78-.7 3.63-1.75z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* PROSE WIDTH */
+    .prose { max-width: 680px; }
+    .prose p { font-size: 17px; }
+
+    /* CAPTURE — categories */
     .categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -212,513 +198,367 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      margin: 32px 0 28px;
+      margin: 32px 0;
     }
-    .cat { background: var(--cream); padding: 28px 26px; }
-    .cat-tag {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
+    .category { background: var(--cream); padding: 28px 24px; }
+    .category h4 {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 19px; font-weight: 400; color: var(--ink);
+      margin-bottom: 8px;
     }
-    .cat h3 {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 20px; font-weight: 400;
-      color: var(--ink); margin-bottom: 8px;
-    }
-    .cat p {
-      font-size: 14px; font-weight: 300;
-      color: var(--charcoal); line-height: 1.65;
-    }
+    .category p { font-size: 14px; line-height: 1.6; margin: 0; color: var(--stone); }
 
-    /* ── CRISIS CALLOUT ── */
-    .crisis-card {
-      background: var(--ink);
-      color: var(--off-white);
-      border-radius: 12px;
-      padding: 56px 48px;
-      margin-top: 32px;
-    }
-    .crisis-card .eyebrow {
-      color: var(--accent);
-    }
-    .crisis-card .eyebrow::before { background: var(--accent); }
-    .crisis-card h2 { color: var(--off-white); }
-    .crisis-card .body-p { color: rgba(240,236,228,0.85); }
-    .crisis-card .body-p strong { color: var(--off-white); }
-    .crisis-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px 24px;
-      margin-top: 20px;
-      padding: 24px 0 4px;
-      border-top: 1px solid rgba(240,236,228,0.18);
-    }
-    .crisis-list li {
-      font-size: 14px; font-weight: 300;
-      color: rgba(240,236,228,0.78);
-      padding-left: 18px; position: relative;
-      line-height: 1.55;
-    }
-    .crisis-list li::before {
-      content: ''; position: absolute;
-      left: 0; top: 9px;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent);
-    }
-
-    /* ── PRIVACY ── */
-    .privacy-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 48px;
+    .circle-card {
       margin-top: 24px;
-    }
-    .privacy-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1px;
-      background: var(--border);
+      padding: 28px 32px;
+      background: var(--blush);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 28px 0 20px;
+      border-radius: 12px;
     }
-    .privacy-item {
-      background: var(--off-white);
-      padding: 18px 20px;
-      display: flex; flex-direction: column; gap: 4px;
-    }
-    .privacy-label { font-size: 13px; font-weight: 500; color: var(--ink); }
-    .privacy-desc { font-size: 12px; font-weight: 300; color: var(--stone); line-height: 1.5; }
-    .nutrition-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 400; color: var(--stone);
-      border: 1px solid var(--border-m);
-      border-radius: 4px; padding: 7px 12px;
-    }
-    .nutrition-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #4caf81; flex-shrink: 0;
-    }
-    .nutrition-tag strong { font-weight: 500; color: var(--ink); }
+    .circle-card h3 { margin-bottom: 8px; }
 
-    /* ── PRICING ── */
-    .pricing-wrap {
-      max-width: 460px; margin: 0 auto;
+    /* CRISIS CALLOUT */
+    .crisis-card {
+      background: var(--cream);
       border: 1px solid var(--border-m);
-      border-radius: 12px; padding: 44px 40px;
-      text-align: center; background: var(--cream);
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 16px;
+    }
+    .crisis-fields {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+      margin: 24px 0;
+    }
+    .crisis-field {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 10px 12px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* PRICING */
+    .pricing-card {
+      max-width: 460px;
+      margin: 0 auto;
+      border: 1px solid var(--border-m);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      background: var(--cream);
     }
     .pricing-label {
       font-size: 11px; font-weight: 500;
       letter-spacing: 3px; text-transform: uppercase;
-      color: var(--stone); margin-bottom: 20px;
+      color: var(--stone); margin-bottom: 16px;
     }
     .pricing-price {
       font-family: var(--ff-display);
       font-style: italic;
-      font-size: 56px; color: var(--ink);
-      line-height: 1; margin-bottom: 6px;
+      font-size: 64px;
+      color: var(--ink);
+      line-height: 1; margin-bottom: 8px;
     }
-    .pricing-price .currency { font-size: 28px; vertical-align: top; }
-    .pricing-sub {
-      font-size: 14px; font-weight: 300;
-      color: var(--stone); margin-bottom: 4px;
-    }
-    .pricing-window {
+    .pricing-deadline {
       font-size: 13px; font-weight: 400;
-      color: var(--accent); margin-bottom: 24px;
+      color: var(--accent);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
     }
     .pricing-after {
       font-size: 13px; font-weight: 300;
-      color: var(--stone); margin-bottom: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+      color: var(--stone); margin-bottom: 32px;
     }
-    .pricing-wrap .btn-app-store {
-      display: inline-flex; margin: 0 auto;
+    .pricing-divider { height: 1px; background: var(--border); margin: 24px 0; }
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin: 0 0 32px 0;
+      padding: 0;
     }
-    .pricing-note {
-      font-size: 12px; font-weight: 300;
-      color: var(--stone); margin-top: 14px;
+    .pricing-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--charcoal);
+      margin-bottom: 10px;
+      padding-left: 0;
     }
+    .pricing-features li::before { content: '·'; color: var(--accent); font-weight: 500; }
+    .pricing-card .btn-app-store { width: 100%; justify-content: center; }
 
-    /* ── ABOUT ── */
-    .about-block {
-      max-width: 620px;
-    }
-
-    /* ── FAQ ── */
-    .faq-list {
-      display: flex; flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--border);
-      margin-top: 32px;
-    }
+    /* FAQ */
+    .faq-list { margin-top: 24px; }
     .faq-item {
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
       padding: 24px 0;
     }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
     .faq-q {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 19px;
-      color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.4;
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 19px; font-weight: 400;
+      color: var(--ink); margin-bottom: 8px;
     }
-    .faq-a {
-      font-size: 15px; font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.7;
-      max-width: 720px;
-    }
-    .faq-a strong { font-weight: 500; color: var(--ink); }
+    .faq-a { font-size: 15px; color: var(--charcoal); margin: 0; line-height: 1.7; }
 
-    /* ── DISCLAIMER ── */
+    /* DISCLAIMER */
     .disclaimer {
-      border-left: 3px solid var(--accent);
-      padding: 16px 24px;
-      background: var(--blush);
-      border-radius: 0 6px 6px 0;
-      margin-top: 16px;
-    }
-    .disclaimer p {
-      font-size: 14px; font-weight: 300;
-      color: var(--charcoal); line-height: 1.7;
+      border-left: 2px solid var(--accent);
+      padding: 4px 0 4px 20px;
+      font-size: 14px;
+      color: var(--stone);
       font-style: italic;
+      max-width: 680px;
     }
 
-    /* ── FOOTER ── */
+    /* ABOUT */
+    .about p { font-size: 15px; max-width: 600px; }
+
+    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 32px 0; }
-    .footer-inner {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
-    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-left { display: flex; flex-direction: column; gap: 2px; }
-    .footer-brand {
-      font-family: var(--ff-display);
-      font-style: italic; font-size: 16px; color: var(--ink);
-    }
+    .footer-brand { font-family: var(--ff-display); font-style: italic; font-size: 16px; color: var(--ink); }
     .footer-copy { font-size: 11px; font-weight: 300; color: var(--stone); }
-    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-    .footer-links a {
-      font-size: 12px; font-weight: 400; color: var(--stone);
-      text-decoration: none; transition: color 0.15s;
-    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; font-weight: 400; color: var(--stone); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--ink); }
 
     @media (max-width: 720px) {
       section { padding: 64px 0; }
-      .hero { padding: 80px 0 64px; }
-      .privacy-card, .crisis-card { padding: 32px 24px; }
-      .pricing-wrap { padding: 32px 24px; }
+      .hero { padding: 64px 0 48px; }
+      .crisis-card { padding: 28px 24px; }
+      .pricing-card { padding: 36px 24px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .a  { animation: fadeUp 0.65s ease both; }
-    .d1 { animation-delay: 0.08s; }
-    .d2 { animation-delay: 0.16s; }
-    .d3 { animation-delay: 0.24s; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="container">
       <div class="nav-inner">
-        <a class="nav-logo" href="#hero">MomKnows<span>!</span></a>
+        <div class="nav-left">
+          <a class="nav-back" href="/">← malikbanksnyc.com</a>
+          <a class="nav-logo" href="#hero">MomKnows<span>!</span></a>
+        </div>
         <ul class="nav-links">
           <li><a href="#why">Why</a></li>
           <li><a href="#capture">What it captures</a></li>
           <li><a href="#privacy">Privacy</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#" class="btn-nav">Coming Soon</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
+  <section id="hero" class="hero">
     <div class="container">
-      <p class="eyebrow a">iOS · Coming Soon</p>
-      <h1 class="a d1">MomKnows<span class="exclaim">!</span></h1>
-      <p class="hero-tagline a d1">So nothing's lost when it matters most.</p>
-      <p class="hero-lede a d2">
-        MomKnows! is a private, on-device vault for the practical knowledge your family carries —
-        <strong>medications, accounts, contacts, instructions, and the small particulars only one person knows.</strong>
-      </p>
-      <p class="hero-sub a d2">
-        Built for the moment you wish you had asked. Not a memory book — an operational handoff,
-        done in advance and ready when you need it.
-      </p>
-      <div class="cta-row a d3">
-        <a href="#" class="btn-app-store">Coming Soon to the App Store</a>
-        <span class="cta-meta">iOS 17+ · One-time purchase · No subscription</span>
+      <p class="eyebrow">Coming Soon · iOS 17+</p>
+      <h1>MomKnows<span class="exclaim">!</span></h1>
+      <p class="hero-tagline">So nothing's lost when it matters most.</p>
+      <p class="hero-lede">Your parent carries knowledge nobody else has. The medications. The insurance policy. The water shut-off. The lawyer's name. The hospital they want, the bank they use, the story behind the silver in the drawer. MomKnows! is a private, structured way to capture it now — so it's there when you need it.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-app-store">Download on the App Store</a>
       </div>
-      <figure class="hero-figure a d3">
+      <figure class="hero-figure">
         <img src="/images/momknows/hero-placeholder.png" alt="">
       </figure>
     </div>
   </section>
-
-  <!-- WHY -->
   <section id="why">
     <div class="container">
-      <p class="eyebrow">Why MomKnows</p>
-      <h2>The knowledge you need<br>lives in one head.</h2>
-      <p class="body-p">
-        It's the ER intake desk asking which medication your mother takes, and you don't know. It's the 2 a.m. phone call from a sibling who can't find the Medicare card. It's a bad diagnosis, a hospital bed, an estate to sort, a will nobody can locate. The knowledge that becomes urgent in those moments — <strong>which doctor, which hospital, which lawyer, which bank, who to call first, where the documents are</strong> — usually exists in exactly one place. In a parent's head.
-      </p>
-      <p class="body-p">
-        It evaporates the moment you need it. Not because anyone hid it. Because nobody wrote it down, and the conversation that would have written it down is the one nobody wants to have.
-      </p>
-      <p class="body-p">
-        MomKnows! is a structured, private way to have that conversation now, while it's still a conversation and not a crisis. It works by category, in plain language, at the pace of a Sunday afternoon. The stories are welcome — the recipes, the family history, the things that aren't on any form. But the primary work is operational, and the primary user is the adult child who already knows what it feels like to wish they had asked.
-      </p>
+      <p class="eyebrow">Why MomKnows!</p>
+      <h2>The phone call comes<br>when you're not ready.</h2>
+      <div class="prose">
+        <p>A bad diagnosis. A fall. A confused 2am call from a sibling. An ER intake desk asking a question you don't know how to answer. In that moment, the information you need lives in one place: your parent's head. The moment you need it most is exactly when it's hardest to ask for.</p>
+        <p>This isn't theoretical. Adult children spend months trying to settle estates because nobody knew which accounts existed. Hospitals make decisions without the full medication list because no one wrote it down. Houses sit unmaintained because the kids don't know who fixes the boiler. The knowledge that ran a family for forty years lives in two heads — and it leaves with them.</p>
+        <p>MomKnows! exists because the conversation you keep putting off is the one that needs to happen. The app gives it shape. You sit down with your parent — or with yourself — and you go through it. Once. Carefully. While there's still time.</p>
+      </div>
     </div>
   </section>
-
-  <!-- CAPTURE -->
   <section id="capture">
     <div class="container">
       <p class="eyebrow">What it captures</p>
-      <h2>Five categories.<br>Sixty-nine guided questions.</h2>
-      <p class="section-sub">Each question was written for a real conversation with a real family member — not for filling out a form. You can capture from one parent, both parents, a grandparent, an aunt, or yourself.</p>
+      <h2>69 questions.<br>Five categories.<br>Per person.</h2>
+      <div class="prose">
+        <p>Each question is written for a real conversation with a real family member — not for filling out a form. Some take a sentence to answer. Some take an afternoon. The structure is there so you don't have to invent it from scratch in a moment when inventing anything is the last thing you can do.</p>
+      </div>
       <div class="categories">
-        <div class="cat">
-          <p class="cat-tag">01 · Health</p>
-          <h3>Health &amp; Medical</h3>
-          <p>Medications, allergies, conditions, doctors, blood type, healthcare proxy, advance directives, preferred hospital, insurance.</p>
+        <div class="category">
+          <h4>Health &amp; Medical</h4>
+          <p>Medications and dosages. Allergies. Conditions and surgeries. Doctors and specialists. Insurance. Advance directives. The information an ER asks for.</p>
         </div>
-        <div class="cat">
-          <p class="cat-tag">02 · Home</p>
-          <h3>Household &amp; Operations</h3>
-          <p>Where the water shut-off is. Who plows the driveway. The boiler service contract. The router password. The neighbor with the spare key.</p>
+        <div class="category">
+          <h4>Household &amp; Operations</h4>
+          <p>Where things are. Who fixes what. Water shut-off, breaker panel, service providers, warranties, maintenance calendar. The knowledge that runs the house.</p>
         </div>
-        <div class="cat">
-          <p class="cat-tag">03 · Money</p>
-          <h3>Finances &amp; Bills</h3>
-          <p>Accounts, autopayments, where statements go, the accountant's name, the safe deposit box, the will and where it lives.</p>
+        <div class="category">
+          <h4>Finances &amp; Bills</h4>
+          <p>Banks, advisors, accountants. Recurring payments. Subscriptions. Debts. Safe deposit boxes. What's on auto-pay and what isn't. The financial map of a life.</p>
         </div>
-        <div class="cat">
-          <p class="cat-tag">04 · People</p>
-          <h3>Emergency Contacts</h3>
-          <p>The first call, the second call, the one who knows the lawyer. Tap any name to call directly from the Crisis View.</p>
+        <div class="category">
+          <h4>Emergency Contacts</h4>
+          <p>Who to call, in what order, for what. Neighbors, doctors, attorneys, family. The full chain — captured before you need it.</p>
         </div>
-        <div class="cat">
-          <p class="cat-tag">05 · Stories</p>
-          <h3>Family Traditions</h3>
-          <p>Recipes, holiday rituals, the story behind the photograph, the things that get lost first because they live nowhere else.</p>
+        <div class="category">
+          <h4>Family Traditions</h4>
+          <p>Recipes. Stories. Rituals. The inherited wisdom that exists in one head and nowhere else. The things that make your family yours.</p>
         </div>
       </div>
-      <p class="body-p">
-        A <strong>Circle</strong> is the set of people you're capturing for — and you can have more than one. Each profile is separate: Mom's answers don't blend with Dad's, your grandmother stays distinct from your aunt. You can also keep your own profile alongside theirs, building the record your own family will eventually need.
-      </p>
+      <div class="circle-card">
+        <h3>Circle</h3>
+        <p>Capture from anyone. Mom has her own profile. Dad has his. A grandparent, an aunt, the family friend who's been there forever — each person has their own set of answers. You can also build your own profile alongside, preparing the record your kids will eventually need from you. The app works in both directions: gathering from the people who raised you, and preparing what comes after.</p>
+      </div>
     </div>
   </section>
-
-  <!-- CRISIS VIEW -->
   <section id="crisis">
     <div class="container">
+      <p class="eyebrow">Crisis View</p>
+      <h2>One long-press<br>from a hold-up-to-the-paramedic screen.</h2>
+      <div class="prose">
+        <p>This is the feature that earns the app its place on the home screen. From anywhere inside MomKnows!, a single long-press surfaces the Crisis View — the information a stranger needs to make decisions about a person they don't know. Large type. High contrast. Built to be read across an ER intake desk.</p>
+      </div>
       <div class="crisis-card">
-        <p class="eyebrow">Crisis View</p>
-        <h2>One long-press. Hold up<br>to the paramedic.</h2>
-        <p class="body-p">
-          The Crisis View is a single screen designed to be useful at the worst possible moment. Large type, high contrast, nothing extra on the screen. The information a stranger needs to keep your family member alive and treatable, on one screen, ready to be held up to a phone camera or a clipboard.
-        </p>
-        <p class="body-p">
-          <strong>Tap any contact to call directly.</strong> Tap the address to navigate. The same data exports as a two-page <strong>Emergency Packet PDF</strong> — identity and medical on page one, contacts on page two, formatted for the glove compartment, the bedside drawer, or a sibling's email.
-        </p>
-        <ul class="crisis-list">
-          <li>Blood type</li>
-          <li>Allergies</li>
-          <li>Current medications</li>
-          <li>Preferred hospital</li>
-          <li>Healthcare proxy</li>
-          <li>Power of attorney</li>
-          <li>Insurance carrier &amp; ID</li>
-          <li>Advance directive status</li>
-        </ul>
+        <div class="crisis-fields">
+          <div class="crisis-field">Blood Type</div>
+          <div class="crisis-field">Allergies</div>
+          <div class="crisis-field">Medications</div>
+          <div class="crisis-field">Preferred Hospital</div>
+          <div class="crisis-field">Healthcare Proxy</div>
+          <div class="crisis-field">Power of Attorney</div>
+          <div class="crisis-field">Insurance</div>
+          <div class="crisis-field">Advance Directive</div>
+        </div>
+        <div class="prose">
+          <p>Every contact is tap-to-call. Healthcare proxy and POA can be reached in one motion. The screen is designed to be useful when whoever's reading it has thirty seconds and is wearing gloves.</p>
+          <p><strong>Emergency Packet PDF.</strong> When sharing matters more than holding the phone up, export a clean two-page PDF formatted for the glove compartment or the bedside drawer. Identity and medical on page one. Contacts on page two. One tap from the Crisis View. Send it to a sibling who doesn't use the app, leave it with a caregiver, fold it into a will.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- VOICE + STORIES -->
   <section id="voice-stories">
     <div class="container">
       <p class="eyebrow">Voice &amp; Stories</p>
-      <h2>Speak it.<br>It stays on the phone.</h2>
-      <p class="body-p">
-        Every long-answer field accepts spoken input. Dictation is transcribed entirely on the device using Apple's Speech framework, with on-device recognition required. Audio never leaves the phone — there is no fallback to cloud recognition. If your device or language doesn't support on-device transcription, dictation is disabled rather than rerouted. A deliberate refusal, not an oversight.
-      </p>
-      <p class="body-p">
-        <strong>Stories</strong> is the open-ended counterpart to the guided questions. Voice memories, one-off anecdotes, the family recipe in the recorder's actual voice, the inherited piece of advice you don't want to lose the cadence of. Photos, videos, and audio recordings can ride along with any story. Stored locally — or on an external USB-C drive of your choice — and bound to whichever Circle profile they belong to.
-      </p>
-      <p class="body-p">
-        Most stories begin as a question you didn't know you were going to ask. Start the recording, let the person talk, and the transcript builds itself in plain text you can edit later. The audio file stays alongside the transcript, so the voice is preserved even after the words are tidied up.
-      </p>
+      <h2>Some answers don't fit a form.</h2>
+      <div class="prose">
+        <p><strong>Voice dictation, on-device only.</strong> Every long-answer field accepts spoken input, transcribed entirely on your device using Apple's Speech framework. Audio never leaves the phone. If your device or your language can't run on-device recognition, the app turns dictation off — it does not fall back to cloud transcription. The trade-off is intentional: a feature that protects your privacy by being absent is more honest than one that quietly compromises it.</p>
+        <p><strong>Stories.</strong> A voice memory of your father's laugh telling the same joke for the fortieth time. The exact way your grandmother pronounced the name of the village she came from. The recipe nobody wrote down because nobody thought it could be lost. Stories captures the things that don't belong in a category — the inherited wisdom that makes a family a family.</p>
+        <p>Photos, videos, and audio recordings can attach to any story or any answer. Everything stays on the device, or — if you choose — on an external USB drive of your own. The app never asks for cloud permissions to do this. It uses the iOS document picker, and it goes where you point it.</p>
+      </div>
     </div>
   </section>
-
-  <!-- PRIVACY AS ARCHITECTURE -->
   <section id="privacy">
     <div class="container">
       <p class="eyebrow">Privacy as architecture</p>
-      <h2>Not a posture.<br>A property of the build.</h2>
-      <div class="privacy-card">
-        <p class="body-p">
-          MomKnows! has no accounts, no servers, no cloud sync, no iCloud sync, no third-party backends, no analytics, no crash reporters, and no tracking SDKs of any kind. The App Store privacy label reads <strong>"Data Not Collected"</strong> for every category Apple defines — and that is verifiable with any network inspector you'd care to point at the app, because the only outbound traffic the app produces is Apple's own StoreKit purchase flow, which is handled by iOS rather than by us.
-        </p>
-        <p class="body-p">
-          Sensitive fields — insurance numbers, account numbers, the kinds of details you wouldn't paste into a notes app — are stored in the iOS <strong>Keychain</strong> with the <strong>WhenUnlockedThisDeviceOnly</strong> accessibility class. Device-bound. Not synced through iCloud Keychain. Not pulled into a backup unless you explicitly create one. The whole app sits behind biometric unlock (Face ID / Touch ID with a PIN fallback) so a phone left on a kitchen counter is not a phone with the family's medical history on it.
-        </p>
-        <p class="body-p">
-          When you create an encrypted backup, the file is sealed with <strong>AES-256-GCM</strong> using a key derived from your passphrase via <strong>PBKDF2-HMAC-SHA256</strong> with 100,000 iterations and a fresh 16-byte salt. You choose the passphrase. We never see it, never store it, and cannot recover it. That is not a policy promise — it is the only configuration that keeps the file unreadable to anyone who is not you. Export the backup anywhere iOS can write a file. Restore it on any iPhone. Take your data with you whenever you decide to go.
-        </p>
-        <div class="privacy-row">
-          <div class="privacy-item">
-            <span class="privacy-label">No accounts</span>
-            <span class="privacy-desc">Nothing to register, verify, or recover.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">No servers</span>
-            <span class="privacy-desc">Bleek Vision LLC operates none.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">No analytics</span>
-            <span class="privacy-desc">Zero telemetry. Zero crash reporting.</span>
-          </div>
-          <div class="privacy-item">
-            <span class="privacy-label">On-device dictation</span>
-            <span class="privacy-desc">Audio never leaves the phone.</span>
-          </div>
-        </div>
-        <div class="nutrition-tag">
-          <div class="nutrition-dot"></div>
-          App Store Privacy Label: <strong>&nbsp;Data Not Collected</strong>
-        </div>
+      <h2>Privacy isn't a posture.<br>It's how the app is built.</h2>
+      <div class="prose">
+        <p>MomKnows! is not "privacy-first" as a marketing claim. It is privacy-first as an architectural fact. There are no accounts — there's nothing to register, no email to verify, no password to lose. There are no servers, no cloud sync, no iCloud sync, and no third-party backends. There are no analytics SDKs, no crash reporters, and no tracking libraries embedded in the build. The App Store privacy label reads <strong>"Data Not Collected"</strong> across every category Apple defines. That label is verifiable with any network inspector you point at the app.</p>
+        <p>Sensitive fields — insurance numbers, account credentials, anything you mark as protected — are stored in the iOS Keychain with the device-bound accessibility class. They never sync through iCloud Keychain, even if you have iCloud Keychain enabled on your device. The whole app sits behind biometric unlock — Face ID, Touch ID, or PIN fallback — and biometric authentication runs entirely through Apple's LocalAuthentication framework. Your biometric template never leaves the Secure Enclave.</p>
+        <p>The only network activity MomKnows! ever triggers is Apple's StoreKit purchase flow, run by iOS, when you buy the app. We never see your payment method. We never see your Apple Account. We never see your name. The full architecture — every framework used, every accessibility class set, every cryptographic primitive — is documented in the <a class="inline-link" href="/momknows-privacy">privacy policy</a>.</p>
       </div>
     </div>
   </section>
-
-  <!-- PRICING -->
   <section id="pricing">
     <div class="container">
-      <p class="eyebrow">Pricing</p>
-      <h2>Pay once. Own the app.</h2>
-      <p class="section-sub">No subscription. No tiers. No in-app purchases. No ads. Updates included.</p>
-      <div class="pricing-wrap">
-        <p class="pricing-label">Intro price</p>
-        <p class="pricing-price"><span class="currency">$</span>29</p>
-        <p class="pricing-sub">one-time purchase</p>
-        <p class="pricing-window">For a limited time</p>
-        <a href="#" class="btn-app-store">Coming Soon to the App Store</a>
-        <p class="pricing-after">Then $49.99, also one-time.</p>
-        <p class="pricing-note">iPhone &amp; iPad · iOS 17 or later</p>
+      <p class="eyebrow" style="justify-content:center;">Pricing</p>
+      <h2 style="text-align:center;">One-time. Yours.</h2>
+      <div class="pricing-card">
+        <p class="pricing-label">Launch Pricing</p>
+        <p class="pricing-price">$29</p>
+        <p class="pricing-deadline">Through June 15, 2026</p>
+        <p class="pricing-after">Then $49.99 — still one-time</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>69 guided questions across 5 categories</li>
+          <li>Capture from anyone in your Circle</li>
+          <li>Crisis View &amp; Emergency Packet PDF</li>
+          <li>On-device voice dictation</li>
+          <li>Stories with photos, video, and audio</li>
+          <li>AES-256-GCM encrypted backups</li>
+          <li>iOS Keychain for sensitive fields</li>
+          <li>Biometric unlock</li>
+          <li>No subscription · no ads · no IAPs</li>
+          <li>All future updates included</li>
+        </ul>
+        <a href="#" class="btn-app-store">Download on the App Store</a>
       </div>
     </div>
   </section>
-
-  <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="about">
     <div class="container">
       <p class="eyebrow">About</p>
       <h2>Made by Bleek Vision LLC.</h2>
-      <div class="about-block">
-        <p class="body-p">
-          MomKnows! is a personal operational vault. Everything lives on your device. Nothing leaves unless you choose to send it.
-        </p>
-        <p class="body-p">
-          Made by <strong>Bleek Vision LLC</strong>, a studio run by Shabaka Malik Banks. The app is dedicated to Brenda.
-        </p>
-        <p class="body-p">
-          Questions, reports, requests of any kind: <a href="mailto:malikbanksnyc@gmail.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;">malikbanksnyc@gmail.com</a>. The address reaches a person, not a queue.
-        </p>
-      </div>
+      <p>MomKnows! is built by <strong>Bleek Vision LLC</strong>, a small studio run by <strong>Shabaka Malik Banks</strong> in New York City, designing and shipping privacy-first software for iOS. The work is done by hand, by one person, with care. Questions, feedback, or anything else: <a class="inline-link" href="mailto:malikbanksnyc@gmail.com">malikbanksnyc@gmail.com</a>.</p>
     </div>
   </section>
-
-  <!-- FAQ -->
   <section id="faq">
     <div class="container">
       <p class="eyebrow">FAQ</p>
-      <h2>The questions buyers ask.</h2>
+      <h2>Common questions.</h2>
       <div class="faq-list">
         <div class="faq-item">
           <p class="faq-q">Is my data sent to your servers?</p>
-          <p class="faq-a">No — and the reason is structural rather than promised. Bleek Vision LLC operates no servers for MomKnows!. The app makes no outbound network requests of its own. The App Store privacy label reads "Data Not Collected" because nothing is collected.</p>
+          <p class="faq-a">No. There are no servers. The app makes no outbound network calls of any kind. You can verify it with a network inspector — that's not a marketing claim, it's an architectural fact.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">What happens if I lose my phone?</p>
-          <p class="faq-a">If you've created an encrypted backup and saved it somewhere — iCloud Drive, a USB-C drive, your computer — you can restore it onto a new iPhone using your passphrase. There is no cloud recovery from us, because there is no cloud.</p>
+          <p class="faq-a">You restore from a backup you created — a single encrypted file you saved wherever you chose (iCloud Drive, USB-C, another Files location). There is no cloud recovery. We can't recover what we never had.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">What happens if I lose my backup passphrase?</p>
-          <p class="faq-a">Your backup cannot be decrypted. Not by us, not by appeal, not by any technical means. That's not us being unhelpful — it's the only configuration that keeps the file unreadable to anyone who is not you. Choose a passphrase you can recover, and write it somewhere safe.</p>
+          <p class="faq-a">The backup can't be decrypted. That's the point: a backup nobody but you can read is one nobody can take from you. Choose your passphrase carefully, and store it somewhere you'll find it.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Does this sync between my iPhone and iPad?</p>
-          <p class="faq-a">Not at launch. Each device holds its own copy. The encrypted backup file is the bridge between devices today.</p>
+          <p class="faq-a">Not in v1.0. You can use the app on multiple devices by restoring the same encrypted backup on each — but live sync isn't part of this version.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Can I share a Circle member with my sibling?</p>
-          <p class="faq-a">Not at launch. Sharing is on the roadmap, but only as a feature designed without weakening the privacy architecture. In the meantime, the Emergency Packet PDF is the easiest way to get the most important pieces to a sibling who isn't using the app.</p>
+          <p class="faq-a">Not in v1.0 — planned for a later release. For now, share the Emergency Packet PDF or an exported backup file.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Why isn't this on Android?</p>
-          <p class="faq-a">iOS only at launch. No Android plans announced. The privacy guarantees lean heavily on specific Apple frameworks (Keychain, Secure Enclave, on-device Speech) and we'd rather build one platform with integrity than two with caveats.</p>
+          <p class="faq-a">iOS only for launch. The privacy posture leans heavily on Apple-specific frameworks — Keychain, Speech, LocalAuthentication, StoreKit. No Android plans announced.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Is this a subscription?</p>
-          <p class="faq-a">No. One-time purchase, $29 as an intro price for a limited time, then $49.99. Future updates included.</p>
+          <p class="faq-a">No. One-time purchase. No tiers, no in-app purchases, no ads. Pay once, own it.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Is this medical or legal advice?</p>
-          <p class="faq-a">No. MomKnows! is a personal record-keeping tool. It captures what you and your family already know, in a structured place. It is not a substitute for medical records, legal documents, or professional advice — verify critical information with the doctors, lawyers, and advisors who have actually been retained for it.</p>
+          <p class="faq-a">No. MomKnows! is a personal record-keeping tool — not a substitute for medical records, legal documents, or professional advice. Always verify critical information with your doctor, attorney, or financial advisor.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">How do I delete my data?</p>
-          <p class="faq-a">Delete the app. That removes everything stored locally, including the Keychain entries the app created. Backup files you exported elsewhere are yours to delete on your own terms.</p>
+          <p class="faq-a">Delete the app from your device. That removes everything, including Keychain entries. If you've exported a backup file outside the app, delete that file separately wherever you saved it.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- DISCLAIMER -->
   <section id="disclaimer">
     <div class="container">
-      <p class="eyebrow">Important</p>
-      <div class="disclaimer">
-        <p>
-          MomKnows! is a personal record-keeping tool. It is not a substitute for medical records, legal documents, or professional financial advice. Always verify critical information with your doctor, attorney, or financial advisor.
-        </p>
-      </div>
+      <p class="disclaimer">MomKnows! is a personal record-keeping tool. It is not a substitute for medical records, legal documents, or professional financial advice. Always verify critical information with your doctor, attorney, or financial advisor.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
         <div class="footer-left">
           <span class="footer-brand">MomKnows!</span>
-          <span class="footer-copy">&copy; 2026 Bleek Vision LLC</span>
+          <span class="footer-copy">&copy; 2026 Bleek Vision LLC · New York City</span>
         </div>
         <div class="footer-links">
           <a href="/momknows-privacy">Privacy Policy</a>
           <a href="mailto:malikbanksnyc@gmail.com">Contact</a>
-          <a href="https://malikbanksnyc.com">malikbanksnyc.com</a>
+          <a href="/">malikbanksnyc.com</a>
         </div>
       </div>
     </div>
