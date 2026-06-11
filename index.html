@@ -9,12 +9,37 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17915729348');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shabaka Malik Banks — iOS Developer & Builder</title>
+    <title>Shabaka Malik Banks — iOS Developer, Founder & Builder | NYC</title>
+    <meta name="description" content="Shabaka Malik Banks is a NYC-based iOS developer and founder of Bleek Vision LLC. Building privacy-first apps with Swift and SwiftUI — MadWeather, MomKnows!, UNCONTAINED, and more.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://malikbanksnyc.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shabaka Malik Banks — iOS Developer & Builder">
+    <meta property="og:description" content="NYC-based iOS developer and founder. Building privacy-first apps with Swift and SwiftUI.">
+    <meta property="og:url" content="https://malikbanksnyc.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zerobleek">
+    <meta name="twitter:title" content="Shabaka Malik Banks — iOS Developer & Builder">
+    <meta name="twitter:description" content="NYC-based iOS developer and founder. Building privacy-first apps with Swift and SwiftUI.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shabaka Malik Banks",
+      "url": "https://malikbanksnyc.com",
+      "jobTitle": "iOS Developer",
+      "address": { "@type": "PostalAddress", "addressLocality": "New York City", "addressRegion": "NY" },
+      "sameAs": [
+        "https://github.com/zerobleek",
+        "https://twitter.com/zerobleek",
+        "https://www.youtube.com/@zerobleek"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -28,11 +53,7 @@
             --hover: #292524;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'DM Sans', -apple-system, sans-serif;
@@ -123,114 +144,233 @@
             border-bottom: none;
         }
 
-        /* Projects Grid */
-        .projects-grid {
+        /* App Cards Grid */
+        .apps-grid {
             display: grid;
-            gap: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        .project {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 48px;
-            align-items: start;
-            padding-bottom: 60px;
-            border-bottom: 1px solid var(--border);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+        .app-card {
+            border: 1px solid var(--border);
+            padding: 32px;
+            background: var(--bg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .project:nth-child(1) { animation-delay: 0.5s; }
-        .project:nth-child(2) { animation-delay: 0.6s; }
-        .project:nth-child(3) { animation-delay: 0.7s; }
-        .project:nth-child(4) { animation-delay: 0.8s; }
-
-        .project:last-child {
-            border-bottom: none;
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
         }
 
-        .project-meta {
-            position: sticky;
-            top: 32px;
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .project-title {
+        .app-card h3 {
             font-family: 'DM Serif Display', serif;
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 24px;
             font-weight: 400;
             letter-spacing: -0.02em;
         }
 
-        .project-type {
-            font-size: 14px;
+        .app-card-status {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            white-space: nowrap;
         }
 
-        .project-tags {
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .app-card-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
         .tag {
-            font-size: 12px;
-            padding: 4px 12px;
+            font-size: 11px;
+            padding: 3px 10px;
             background: var(--accent);
             color: var(--bg);
             border-radius: 20px;
             font-weight: 500;
         }
 
-        .project-description p {
-            margin-bottom: 16px;
-            color: var(--text);
+        .app-card-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--hover);
+            border-color: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Ventures — reuse app-card style */
+        .ventures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .venture-card {
+            border: 1px solid var(--border);
+            padding: 32px;
+            background: var(--bg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .venture-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .venture-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .venture-card-type {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: -8px;
+        }
+
+        .venture-card p {
+            color: var(--text-muted);
+            font-size: 15px;
             line-height: 1.7;
         }
 
-        .project-features {
-            margin-top: 24px;
-        }
-
-        .project-features ul {
+        .venture-card ul {
             list-style: none;
             display: grid;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .project-features li {
+        .venture-card li {
             padding-left: 20px;
             position: relative;
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        .project-features li:before {
+        .venture-card li::before {
             content: "→";
             position: absolute;
             left: 0;
             color: var(--accent);
         }
 
-        /* Future Projects */
-        .future-projects-list {
-            display: flex;
-            flex-wrap: wrap;
+        /* Content / Social Embeds */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
             gap: 32px;
+            align-items: start;
         }
 
-        .future-project-title {
+        .content-grid h3 {
             font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            color: var(--text-muted);
+            font-size: 20px;
             font-weight: 400;
-            letter-spacing: -0.02em;
-            transition: color 0.3s ease;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
         }
 
-        .future-project-title:hover {
-            color: var(--text);
+        .youtube-embeds {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .twitter-embed {
+            border: 1px solid var(--border);
+            padding: 24px;
+            min-height: 400px;
         }
 
         /* Links Section */
@@ -275,6 +415,27 @@
             margin-bottom: 8px;
         }
 
+        /* Resume Button */
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+
+        .resume-btn:hover {
+            background: var(--hover);
+            border-color: var(--hover);
+            transform: translateX(4px);
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
@@ -313,160 +474,52 @@
             color: var(--hover);
         }
 
-        /* Resume Button */
-        .resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent);
-        }
-
-        .resume-btn:hover {
-            background: var(--hover);
-            border-color: var(--hover);
-            transform: translateX(4px);
-        }
-
-        /* Venture Action Buttons */
-        .venture-actions {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-
-        .venture-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent);
-        }
-
-        .venture-btn:hover {
-            background: var(--hover);
-            border-color: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .venture-btn.secondary {
-            background: transparent;
-            color: var(--accent);
-        }
-
-        .venture-btn.secondary:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        /* Product Page Buttons */
-        .product-actions {
-            margin-top: 24px;
-        }
-
-        .product-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: transparent;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent);
-        }
-
-        .product-btn:hover {
-            background: var(--accent);
-            color: var(--bg);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
         /* Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
+            .container { padding: 0 20px; }
 
-            header {
-                padding: 60px 0 80px;
-            }
+            header { padding: 48px 0 64px; }
 
             .header-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
             }
 
             .header-image {
                 width: 100%;
                 max-width: 320px;
-                margin: 0 auto;
             }
 
             section {
-                margin-bottom: 100px;
+                margin-bottom: 48px;
+                padding-bottom: 48px;
             }
 
-            .project {
+            .apps-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
-                padding-bottom: 60px;
             }
 
-            .project-meta {
-                position: static;
+            .ventures-grid {
+                grid-template-columns: 1fr;
             }
 
-            .links-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -483,7 +536,7 @@
             <div class="header-content">
                 <div class="header-text">
                     <h1>Shabaka Malik Banks</h1>
-                    <p class="tagline">iOS Developer crafting sophisticated mobile experiences with Swift, SwiftUI, and modern AI integration. Building products from concept to launch with an emphasis on storytelling and utility.</p>
+                    <p class="tagline">iOS developer and founder based in NYC. Building privacy-first apps with Swift and SwiftUI — from concept to App Store.</p>
                     <div style="margin-top: 16px;">
                         <a href="/resume.pdf" class="resume-btn" download>
                             <span>Download Resume</span>
@@ -497,229 +550,169 @@
             </div>
         </header>
 
-        <section id="work">
-            <h2 class="section-title">Selected Work</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">madweather</h3>
-                        <p class="project-type">iOS App — Production</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">Weather API</span>
-                            <span class="tag">Core Location</span>
-                            <span class="tag">Widgets</span>
-                        </div>
+        <main>
+
+        <section id="apps">
+            <h2 class="section-title">Apps</h2>
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>MadWeather</h3>
+                        <span class="app-card-status">Live</span>
                     </div>
-                    <div class="project-description">
-                        <p>Beautiful, minimalist weather app delivering essential forecasts with clean design and intuitive interface.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>Real-time weather data with accurate forecasts</li>
-                                <li>Location-based automatic updates</li>
-                                <li>Home screen widgets for quick access</li>
-                                <li>Clean, distraction-free interface</li>
-                                <li>Dark mode support</li>
-                                <li>Optimized for iOS performance</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="madweather.html" class="product-btn">→ Product Page</a>
-                        </div>
+                    <p>Beautiful, minimalist weather app with clean forecasts, widgets, and dark mode.</p>
+                    <div class="app-card-tags">
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">WeatherKit</span>
+                        <span class="tag">Widgets</span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="madweather.html" class="btn-primary">Product Page</a>
+                        <a href="#" class="btn-secondary">App Store ↗</a>
                     </div>
                 </div>
 
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">FOCUS//DECK</h3>
-                        <p class="project-type">iOS App · Coming Soon</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">SwiftData</span>
-                            <span class="tag">Live Activity</span>
-                            <span class="tag">Screen Time</span>
-                        </div>
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>FOCUS//DECK</h3>
+                        <span class="app-card-status">Coming Soon</span>
                     </div>
-                    <div class="project-description">
-                        <p>A pocket cyberdeck for staying on task — Pomodoro, ADHD sprints, and deep work, fronted by a drill-sergeant mascot named BIT who won't let you bail mid-session.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>Three modes: Pomodoro, ADHD Sprint, Deep Work</li>
-                                <li>BIT — accountability mascot with three intrusion levels</li>
-                                <li>Real Screen Time app-blocking during Deep Work</li>
-                                <li>Live Activity, home/lock-screen widgets, Siri Shortcuts</li>
-                                <li>100% on-device — no accounts, no cloud, no tracking</li>
-                                <li>Free, with a one-time Pro unlock — no subscriptions</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <!-- FOCUS//DECK App Store listing — replace href with the live URL on launch -->
-                            <a href="#" class="product-btn" aria-disabled="true" style="opacity:0.55;pointer-events:none;">→ App Store · Coming Soon</a>
-                        </div>
+                    <p>Pocket cyberdeck for staying on task — Pomodoro, ADHD sprints, and a drill-sergeant mascot named BIT.</p>
+                    <div class="app-card-tags">
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">SwiftData</span>
+                        <span class="tag">Live Activity</span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="#" class="btn-primary btn-disabled">Coming Soon</a>
                     </div>
                 </div>
 
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">UNCONTAINED</h3>
-                        <p class="project-type">iOS Game — In Development</p>
-                        <div class="project-tags">
-                            <span class="tag">SpriteKit</span>
-                            <span class="tag">Metal</span>
-                            <span class="tag">Puzzle</span>
-                            <span class="tag">Nuclear Physics</span>
-                        </div>
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>UNCONTAINED</h3>
+                        <span class="app-card-status">In Dev</span>
                     </div>
-                    <div class="project-description">
-                        <p>Nuclear fission puzzle game. 72 levels, 9 atom types, chain reactions that don't forgive bad angles.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>6 chapters — First Light to Vacuum Decay</li>
-                                <li>Metal-accelerated shaders</li>
-                                <li>No ads. No timers. No tricks.</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="uncontained.html" class="product-btn">→ Product Page</a>
-                        </div>
+                    <p>Nuclear fission puzzle game. 72 levels, 9 atom types, chain reactions that don't forgive bad angles.</p>
+                    <div class="app-card-tags">
+                        <span class="tag">SpriteKit</span>
+                        <span class="tag">Metal</span>
+                        <span class="tag">Puzzle</span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="uncontained.html" class="btn-primary">Product Page</a>
+                        <a href="#" class="btn-secondary btn-disabled">App Store ↗</a>
                     </div>
                 </div>
 
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">Cipher Protocol</h3>
-                        <p class="project-type">iOS Fitness RPG — In Development</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">CoreLocation</span>
-                            <span class="tag">ARKit</span>
-                            <span class="tag">CloudKit</span>
-                        </div>
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>MomKnows!</h3>
+                        <span class="app-card-status">Coming Soon</span>
                     </div>
-                    <div class="project-description">
-                        <p>Fitness tracking disguised as a 90s espionage JRPG. GPS-tracked runs become covert operations where consistency matters more than speed, and community support replaces leaderboards. <strong>"No Agent Left Behind"</strong> culture celebrating every runner's journey.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li><strong>Route-based missions:</strong> GPS waypoints unlock intel codes, transforming neighborhood jogs into faction-based espionage campaigns</li>
-                                <li><strong>Authentic retro aesthetic:</strong> Metal Gear Solid-inspired CRT terminal (dark mode) and LCD hardware display (light mode) with period-accurate scanline effects</li>
-                                <li><strong>Community-first fitness:</strong> Agent groups and mission buddies foster accountability without competition</li>
-                                <li><strong>ARKit integration:</strong> Landscape-mode immersive experiences with waypoint interactions</li>
-                                <li><strong>Inclusive by design:</strong> Pivoted from competitive location-locked missions to wellness platform celebrating all fitness levels</li>
-                                <li><strong>Mental health focus:</strong> Personal fulfillment and community connection over performance metrics</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="cipher-protocol.html" class="product-btn">→ Product Page</a>
-                        </div>
+                    <p>Capture the operational knowledge your parents carry — privately, on-device, no cloud.</p>
+                    <div class="app-card-tags">
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">Privacy</span>
+                        <span class="tag">On-Device</span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="momknows.html" class="btn-primary">Product Page</a>
+                        <a href="#" class="btn-secondary btn-disabled">App Store ↗</a>
                     </div>
                 </div>
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">MomKnows!</h3>
-                        <p class="project-type">iOS · Coming Soon</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">Privacy</span>
-                            <span class="tag">iOS Keychain</span>
-                            <span class="tag">On-Device</span>
-                        </div>
+
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>Cipher Protocol</h3>
+                        <span class="app-card-status">In Dev</span>
                     </div>
-                    <div class="project-description">
-                        <p>A privacy-first iOS app for capturing and preserving critical life knowledge — from the people who raised you, and for the people who come after. No cloud. No servers. All data on-device.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li>200 guided questions across 5 life categories</li>
-                                <li>Zero network calls — fully offline</li>
-                                <li>iOS Keychain for sensitive fields</li>
-                                <li>AES-256 encrypted local backups</li>
-                                <li>PDF export for sharing or printing</li>
-                                <li>One-time purchase — no subscription</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="momknows.html" class="product-btn">→ Product Page</a>
-                        </div>
+                    <p>Fitness tracking disguised as a 90s espionage JRPG. GPS runs become covert ops.</p>
+                    <div class="app-card-tags">
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">ARKit</span>
+                        <span class="tag">CoreLocation</span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="cipher-protocol.html" class="btn-primary">Product Page</a>
+                        <a href="#" class="btn-secondary btn-disabled">App Store ↗</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="ventures-section">
+        <section id="ventures">
             <h2 class="section-title">Ventures</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">Bleek Vision LLC</h3>
-                        <p class="project-type">AI-Powered App Development — Est. 2026</p>
-                        <div class="project-tags">
-                            <span class="tag">AI</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">Software</span>
-                        </div>
+            <div class="ventures-grid">
+                <div class="venture-card">
+                    <h3>Bleek Vision LLC</h3>
+                    <p class="venture-card-type">AI-Powered App Development — Est. 2026</p>
+                    <div class="app-card-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Mobile</span>
+                        <span class="tag">Software</span>
                     </div>
-                    <div class="project-description">
-                        <p>Building AI-powered mobile apps for iOS — and eventually Android. Designing, developing, and shipping products solo from concept to store.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li><strong>Shipped:</strong> MadWeather — live on the App Store</li>
-                                <li><strong>In development:</strong> Multiple titles currently in progress</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p>Building AI-powered mobile apps for iOS — and eventually Android. Designing, developing, and shipping products solo from concept to store.</p>
+                    <ul>
+                        <li><strong>Shipped:</strong> MadWeather — live on the App Store</li>
+                        <li><strong>In development:</strong> Multiple titles in progress</li>
+                    </ul>
                 </div>
-                <div class="project">
-                    <div class="project-meta">
-                        <h3 class="project-title">SuperCoffeeXP</h3>
-                        <p class="project-type">Coffee × Gaming Concept — Q3 2026 Launch</p>
-                        <div class="project-tags">
-                            <span class="tag">Coffee</span>
-                            <span class="tag">Gaming</span>
-                            <span class="tag">AR/Mobile</span>
-                            <span class="tag">Community</span>
-                        </div>
+                <div class="venture-card">
+                    <h3>SuperCoffeeXP</h3>
+                    <p class="venture-card-type">Coffee × Gaming — Q3 2026 Launch</p>
+                    <div class="app-card-tags">
+                        <span class="tag">Coffee</span>
+                        <span class="tag">Gaming</span>
+                        <span class="tag">Community</span>
                     </div>
-                    <div class="project-description">
-                        <p><strong>Fuel. Play. Connect.</strong> Next-generation coffee and gaming concept creating an intentional third place where premium coffee, digital culture, and community converge. Flagship location launching Brooklyn, NYC.</p>
-                        <div class="project-features">
-                            <ul>
-                                <li><strong>First-mover advantage:</strong> Pioneering coffee × gaming brand targeting $495B coffee + $546B gaming markets</li>
-                                <li><strong>Mobile-first platform:</strong> AR loyalty system, gamification, and future gaming integrations</li>
-                                <li><strong>Diversified revenue model:</strong> Premium coffee, memberships, events, merchandise, and digital experiences</li>
-                                <li><strong>Target demographic:</strong> Tech-savvy adults with affinity for premium coffee and gaming culture</li>
-                                <li><strong>Scalable model:</strong> Corporate-owned flagship with licensable technology platform and franchise potential</li>
-                                <li><strong>Community-centered:</strong> Purpose-built environment focused on belonging, experience, and progression</li>
-                            </ul>
-                        </div>
-                        <div class="venture-actions">
-                            <a href="/cdn-cgi/l/email-protection#234e424f4a4841424d48504d5a4063444e424a4f0d404c4e1c505641494640571e7056534651604c454546467b73061113734a57404b061113674640480611137146525646505705414c475a1e6b4a0611136e424f4a480f0613670613620613670613626a04470611134f4a4846061113574c06111351465256465057061113574b460611137056534651604c454546467b73061113534a57404b061113474640480d061367061362061367061362774b424d480611135a4c5602" class="venture-btn">📊 Request Pitch Deck</a>
-                        </div>
+                    <p><strong>Fuel. Play. Connect.</strong> Premium coffee meets gaming culture. Flagship location launching Brooklyn, NYC.</p>
+                    <ul>
+                        <li><strong>First-mover:</strong> Coffee × gaming targeting $495B + $546B markets</li>
+                        <li><strong>Mobile-first:</strong> AR loyalty, gamification, and digital experiences</li>
+                        <li><strong>Community-centered:</strong> Purpose-built space for belonging and progression</li>
+                    </ul>
+                    <div class="app-card-actions">
+                        <a href="mailto:malikbanksnyc@gmail.com?subject=SuperCoffeeXP%20Pitch%20Deck%20Request" class="btn-secondary">Request Pitch Deck</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="future-projects">
-            <h2 class="section-title">Future Projects</h2>
-            <div class="future-projects-list">
-                <div class="future-project-title">Assemblage</div>
-                <div class="future-project-title">LeaseLens</div>
+        <section id="content">
+            <h2 class="section-title">Content</h2>
+            <div class="content-grid">
+                <div class="youtube-embeds">
+                    <h3>Latest Videos</h3>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=zerobleek&max-results=1" title="Latest YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p style="font-size:14px;color:var(--text-muted);margin-top:8px;">
+                        <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;font-weight:500;">See all videos on YouTube →</a>
+                    </p>
+                </div>
+                <div class="twitter-embed">
+                    <h3>Latest Posts</h3>
+                    <a class="twitter-timeline" data-height="500" data-theme="light" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/zerobleek">Posts by @zerobleek</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
             </div>
         </section>
 
         <section id="links">
             <h2 class="section-title">Links</h2>
             <div class="links-grid">
-                <a href="https://github.com/zerobleek" class="link-card" target="_blank">
+                <a href="https://github.com/zerobleek" class="link-card" target="_blank" rel="noopener">
                     <div class="link-card-icon">⌘</div>
                     <div class="link-card-title">GitHub</div>
                     <div class="link-card-subtitle">Code & Projects</div>
                 </a>
-                <a href="https://www.youtube.com/@zerobleek" class="link-card" target="_blank">
+                <a href="https://www.youtube.com/@zerobleek" class="link-card" target="_blank" rel="noopener">
                     <div class="link-card-icon">▶</div>
                     <div class="link-card-title">YouTube</div>
                     <div class="link-card-subtitle">Videos & Content</div>
                 </a>
-                <a href="https://twitter.com/zerobleek" class="link-card" target="_blank">
+                <a href="https://twitter.com/zerobleek" class="link-card" target="_blank" rel="noopener">
                     <div class="link-card-icon">𝕏</div>
                     <div class="link-card-title">Twitter</div>
                     <div class="link-card-subtitle">Updates & Thoughts</div>
@@ -732,13 +725,15 @@
             </div>
         </section>
 
+        </main>
+
         <footer>
             <div class="footer-content">
                 <p class="footer-text">© 2026 Shabaka Malik Banks. Based in NYC.</p>
                 <div class="social-links">
-                    <a href="https://github.com/zerobleek" target="_blank">GitHub</a>
-                    <a href="https://www.youtube.com/@zerobleek" target="_blank">YouTube</a>
-                    <a href="https://twitter.com/zerobleek" target="_blank">Twitter</a>
+                    <a href="https://github.com/zerobleek" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener">Twitter</a>
                     <a href="privacy.html">Privacy</a>
                     <a href="terms.html">Terms</a>
                 </div>
