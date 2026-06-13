@@ -19,12 +19,12 @@
     <link rel="canonical" href="https://malikbanksnyc.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Shabaka Malik Banks">
-    <meta property="og:description" content="Builder, developer, creator. Based in NYC.">
+    <meta property="og:description" content="Developer. Founder. Creator. Making things that matter from NYC.">
     <meta property="og:url" content="https://malikbanksnyc.com/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@zerobleek">
     <meta name="twitter:title" content="Shabaka Malik Banks">
-    <meta name="twitter:description" content="Builder, developer, creator. Based in NYC.">
+    <meta name="twitter:description" content="Developer. Founder. Creator. Making things that matter from NYC.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -176,6 +176,7 @@
             animation: slideUp 0.8s ease-out 0.1s forwards;
             border: 2px solid var(--accent);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            background: #ffffff;
         }
 
         .header-image img {
@@ -320,59 +321,44 @@
             letter-spacing: -0.01em;
         }
 
-        /* App Cards */
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .app-card {
-            border: 1px solid var(--border);
-            padding: 28px;
-            background: var(--bg);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        /* App List (stacked rows) */
+        .apps-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .app-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .app-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .app-card-header {
+        .app-row {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: padding-left 0.25s ease;
         }
 
-        .app-card h3 {
+        .app-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .app-row:hover {
+            padding-left: 8px;
+        }
+
+        .app-name {
             font-family: 'DM Serif Display', serif;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 400;
             letter-spacing: -0.02em;
+            min-width: 160px;
+            flex-shrink: 0;
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            flex: 1;
         }
 
         .app-status {
@@ -383,6 +369,8 @@
             letter-spacing: 0.08em;
             padding: 3px 8px;
             border: 1px solid var(--border);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .app-status.live {
@@ -391,39 +379,9 @@
             color: var(--bg);
         }
 
-        .app-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-            flex: 1;
-        }
-
-        .app-card-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-top: 4px;
-        }
-
-        .app-card-actions a {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .app-card-actions a:hover { color: var(--hover); }
-
-        .app-card-actions .sep {
-            color: var(--border);
-            font-size: 12px;
-        }
-
-        .app-card-actions .disabled {
-            color: var(--text-muted);
-            opacity: 0.5;
-            pointer-events: none;
+        @media (max-width: 600px) {
+            .app-row { flex-wrap: wrap; gap: 4px 12px; }
+            .app-name { min-width: auto; width: 100%; }
         }
 
         /* Links */
@@ -556,9 +514,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
+            .app-row { flex-wrap: wrap; gap: 4px 12px; }
+            .app-name { min-width: auto; }
 
             .footer-content {
                 flex-direction: column;
@@ -596,7 +553,7 @@
                 <div class="header-content">
                     <div class="header-text">
                         <h1>Shabaka Malik Banks</h1>
-                        <p class="tagline">Building things in New York City. Apps, content, and whatever comes next.</p>
+                        <p class="tagline">Developer. Founder. Creator. Making things that matter from New York City.</p>
                     </div>
                     <div class="header-image">
                         <img src="/images/profile.jpg" alt="Shabaka Malik Banks" width="680" height="1024" loading="eager">
@@ -639,63 +596,33 @@
                 <span class="section-code">010</span>
                 <div class="section-line"></div>
             </div>
-            <div class="apps-grid">
-                <div class="app-card">
-                    <div class="app-card-header">
-                        <h3>MadWeather</h3>
-                        <span class="app-status live">Live</span>
-                    </div>
-                    <p>Minimalist weather app with clean forecasts, widgets, and dark mode.</p>
-                    <div class="app-card-actions">
-                        <a href="madweather.html">Product Page</a>
-                        <span class="sep">·</span>
-                        <a href="#">App Store ↗</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-card-header">
-                        <h3>FOCUS//DECK</h3>
-                        <span class="app-status">Coming Soon</span>
-                    </div>
-                    <p>Pocket cyberdeck for staying on task — Pomodoro, ADHD sprints, and BIT.</p>
-                    <div class="app-card-actions">
-                        <a href="#" class="disabled">Coming Soon</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-card-header">
-                        <h3>UNCONTAINED</h3>
-                        <span class="app-status">In Dev</span>
-                    </div>
-                    <p>Nuclear fission puzzle game. 72 levels, chain reactions that don't forgive.</p>
-                    <div class="app-card-actions">
-                        <a href="uncontained.html">Product Page</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-card-header">
-                        <h3>MomKnows!</h3>
-                        <span class="app-status">Coming Soon</span>
-                    </div>
-                    <p>Capture what your parents know — privately, on-device, no cloud.</p>
-                    <div class="app-card-actions">
-                        <a href="momknows.html">Product Page</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-card-header">
-                        <h3>Cipher Protocol</h3>
-                        <span class="app-status">In Dev</span>
-                    </div>
-                    <p>Fitness RPG disguised as 90s espionage. GPS runs become covert ops.</p>
-                    <div class="app-card-actions">
-                        <a href="cipher-protocol.html">Product Page</a>
-                    </div>
-                </div>
+            <p style="color:var(--text-muted);font-size:15px;margin-bottom:32px;">Published by <a href="https://bleekvision.com" target="_blank" rel="noopener" style="color:var(--text);font-weight:500;text-decoration:none;">Bleek Vision LLC</a></p>
+            <div class="apps-list">
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
+                    <span class="app-name">MadWeather</span>
+                    <span class="app-desc">Minimalist weather for iOS</span>
+                    <span class="app-status live">Live</span>
+                </a>
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
+                    <span class="app-name">FOCUS//DECK</span>
+                    <span class="app-desc">Pomodoro + ADHD sprints cyberdeck</span>
+                    <span class="app-status">Soon</span>
+                </a>
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
+                    <span class="app-name">UNCONTAINED</span>
+                    <span class="app-desc">Nuclear fission puzzle game</span>
+                    <span class="app-status">In Dev</span>
+                </a>
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
+                    <span class="app-name">MomKnows!</span>
+                    <span class="app-desc">Private family knowledge capture</span>
+                    <span class="app-status">Soon</span>
+                </a>
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
+                    <span class="app-name">Cipher Protocol</span>
+                    <span class="app-desc">Fitness RPG meets 90s espionage</span>
+                    <span class="app-status">In Dev</span>
+                </a>
             </div>
         </section>
 
@@ -767,9 +694,9 @@
         window.addEventListener('resize', resize);
 
         function draw() {
-            ctx.fillStyle = 'rgba(250, 250, 249, 0.08)';
+            ctx.fillStyle = 'rgba(250, 250, 249, 0.04)';
             ctx.fillRect(0, 0, c.width, c.height);
-            ctx.fillStyle = 'rgba(28, 25, 23, 0.06)';
+            ctx.fillStyle = 'rgba(28, 25, 23, 0.18)';
             ctx.font = '13px JetBrains Mono, monospace';
 
             for (var i = 0; i < cols; i++) {
@@ -781,9 +708,9 @@
                 if (y > c.height && Math.random() > 0.985) {
                     drops[i] = 0;
                 }
-                drops[i]++;
+                drops[i] += 0.4;
             }
-            requestAnimationFrame(draw);
+            setTimeout(function() { requestAnimationFrame(draw); }, 50);
         }
 
         draw();
