@@ -42,7 +42,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fafaf9;
@@ -51,6 +51,7 @@
             --border: #e7e5e4;
             --accent: #0a0a0a;
             --hover: #292524;
+            --code: #d4d4d4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,16 +65,95 @@
             overflow-x: hidden;
         }
 
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+
+        .nav-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-logo span {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        @media (max-width: 600px) {
+            .nav-logo span { display: none; }
+            .nav-links { gap: 16px; }
+        }
+
         .container {
             max-width: 980px;
             margin: 0 auto;
             padding: 0 32px;
         }
 
-        /* Header */
+        /* Hero with matrix rain */
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         header {
+            position: relative;
+            z-index: 1;
             padding: 80px 0 96px;
-            animation: fadeIn 0.8s ease-out;
         }
 
         .header-content {
@@ -92,9 +172,10 @@
         .header-image {
             width: 340px;
             height: auto;
-            animation: slideUp 0.8s ease-out 0.1s both;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.1s forwards;
+            border: 2px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
         .header-image img {
@@ -109,7 +190,8 @@
             font-weight: 400;
             line-height: 1.1;
             letter-spacing: -0.03em;
-            animation: slideUp 0.8s ease-out 0.2s both;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.2s forwards;
         }
 
         .tagline {
@@ -118,17 +200,37 @@
             font-weight: 400;
             max-width: 480px;
             line-height: 1.7;
-            animation: slideUp 0.8s ease-out 0.3s both;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.3s forwards;
         }
 
-        /* Section Titles */
+        /* Section Titles with binary accents */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
         .section-title {
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             font-weight: 500;
             color: var(--text-muted);
-            margin-bottom: 40px;
+        }
+
+        .section-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--code);
+            letter-spacing: 0.1em;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
         section {
@@ -139,6 +241,18 @@
 
         section:last-of-type {
             border-bottom: none;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Content / Social Embeds */
@@ -168,7 +282,7 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border: 1px solid var(--border);
+            border: 2px solid var(--accent);
         }
 
         .video-wrapper iframe {
@@ -193,7 +307,7 @@
         .content-link:hover { color: var(--hover); }
 
         .twitter-col {
-            border: 1px solid var(--border);
+            border: 2px solid var(--accent);
             padding: 24px;
             background: var(--bg);
         }
@@ -217,16 +331,35 @@
             border: 1px solid var(--border);
             padding: 28px;
             background: var(--bg);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .app-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .app-card:hover::before {
+            transform: scaleX(1);
         }
 
         .app-card-header {
@@ -243,12 +376,19 @@
         }
 
         .app-status {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            font-weight: 500;
+            font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--text-muted);
-            white-space: nowrap;
+            padding: 3px 8px;
+            border: 1px solid var(--border);
+        }
+
+        .app-status.live {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg);
         }
 
         .app-card p {
@@ -298,17 +438,36 @@
             padding: 28px;
             text-decoration: none;
             color: var(--text);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             background: var(--bg);
             display: flex;
             flex-direction: column;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .link-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .link-card:hover::before {
+            transform: scaleX(1);
         }
 
         .link-card-title {
@@ -369,7 +528,7 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -409,23 +568,53 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="header-text">
-                    <h1>Shabaka Malik Banks</h1>
-                    <p class="tagline">Building things in New York City. Apps, content, and whatever comes next.</p>
-                </div>
-                <div class="header-image">
-                    <img src="/images/profile.jpg" alt="Shabaka Malik Banks" width="680" height="1024" loading="eager">
-                </div>
-            </div>
-        </header>
 
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="82" stroke="currentColor" stroke-width="6"/>
+                    <polygon points="100,25 178,160 22,160" stroke="currentColor" stroke-width="6" fill="none" stroke-linejoin="round"/>
+                    <ellipse cx="100" cy="108" rx="28" ry="20" stroke="currentColor" stroke-width="5" fill="none"/>
+                    <circle cx="100" cy="108" r="9" fill="currentColor"/>
+                </svg>
+                <span>malikbanksnyc</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#content">Content</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#links">Links</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-wrapper">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <div class="header-text">
+                        <h1>Shabaka Malik Banks</h1>
+                        <p class="tagline">Building things in New York City. Apps, content, and whatever comes next.</p>
+                    </div>
+                    <div class="header-image">
+                        <img src="/images/profile.jpg" alt="Shabaka Malik Banks" width="680" height="1024" loading="eager">
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div class="container">
         <main>
 
-        <section id="content">
-            <h2 class="section-title">Content</h2>
+        <section id="content" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Content</h2>
+                <span class="section-code">001</span>
+                <div class="section-line"></div>
+            </div>
             <div class="content-grid">
                 <div class="content-col">
                     <h3>Latest Videos</h3>
@@ -444,13 +633,17 @@
             </div>
         </section>
 
-        <section id="apps">
-            <h2 class="section-title">Apps</h2>
+        <section id="apps" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Apps</h2>
+                <span class="section-code">010</span>
+                <div class="section-line"></div>
+            </div>
             <div class="apps-grid">
                 <div class="app-card">
                     <div class="app-card-header">
                         <h3>MadWeather</h3>
-                        <span class="app-status">Live</span>
+                        <span class="app-status live">Live</span>
                     </div>
                     <p>Minimalist weather app with clean forecasts, widgets, and dark mode.</p>
                     <div class="app-card-actions">
@@ -506,8 +699,12 @@
             </div>
         </section>
 
-        <section id="links">
-            <h2 class="section-title">Links</h2>
+        <section id="links" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Links</h2>
+                <span class="section-code">101</span>
+                <div class="section-line"></div>
+            </div>
             <div class="links-grid">
                 <a href="https://github.com/zerobleek" class="link-card" target="_blank" rel="noopener">
                     <div class="link-card-icon">⌘</div>
@@ -547,5 +744,65 @@
             </div>
         </footer>
     </div>
+
+    <script>
+    // Matrix binary rain
+    (function() {
+        var c = document.getElementById('matrix-canvas');
+        var ctx = c.getContext('2d');
+        var cols, drops;
+
+        function resize() {
+            c.width = c.parentElement.offsetWidth;
+            c.height = c.parentElement.offsetHeight;
+            var fs = 14;
+            cols = Math.floor(c.width / fs);
+            drops = [];
+            for (var i = 0; i < cols; i++) {
+                drops[i] = Math.random() * -100;
+            }
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(250, 250, 249, 0.08)';
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.fillStyle = 'rgba(28, 25, 23, 0.06)';
+            ctx.font = '13px JetBrains Mono, monospace';
+
+            for (var i = 0; i < cols; i++) {
+                var char = Math.random() > 0.5 ? '1' : '0';
+                var x = i * 14;
+                var y = drops[i] * 14;
+                ctx.fillText(char, x, y);
+
+                if (y > c.height && Math.random() > 0.985) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    })();
+
+    // Scroll reveal
+    (function() {
+        var els = document.querySelectorAll('.reveal');
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        els.forEach(function(el) { obs.observe(el); });
+    })();
+    </script>
+
 </body>
 </html>
