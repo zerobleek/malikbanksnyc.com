@@ -610,75 +610,153 @@
         .work-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 32px 24px;
+            padding: 8px 0;
         }
 
+        /* iPhone frame */
         .work-tile {
             position: relative;
-            aspect-ratio: 9 / 16;
-            background: #111;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            color: #f0efec;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            aspect-ratio: 9 / 19.5;
+            background: #0a0a0a;
+            border-radius: 34px;
+            padding: 8px;
+            box-shadow:
+                0 0 0 1.5px #232323,
+                0 20px 40px rgba(0, 0, 0, 0.18),
+                0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
             text-decoration: none;
+            display: block;
+        }
+
+        .work-tile:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 0 0 1.5px #333,
+                0 26px 50px rgba(0, 0, 0, 0.24),
+                0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Side buttons */
+        .work-tile::before,
+        .work-tile::after {
+            content: '';
+            position: absolute;
+            background: #1a1a1a;
+            border-radius: 2px;
         }
 
         .work-tile::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%);
-            z-index: 0;
+            /* Volume + silent buttons on left */
+            left: -2px;
+            top: 20%;
+            width: 3px;
+            height: 8%;
+            box-shadow:
+                0 20px 0 #1a1a1a,
+                0 40px 0 #1a1a1a;
         }
 
-        .work-tile > * { position: relative; z-index: 1; }
+        .work-tile::after {
+            /* Power button on right */
+            right: -2px;
+            top: 26%;
+            width: 3px;
+            height: 14%;
+        }
 
-        .work-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+        /* Screen */
+        .work-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 27px;
+            overflow: hidden;
+            background: linear-gradient(160deg, #1e293b 0%, #0f172a 60%, #020617 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 44px 16px 32px;
+            color: #f0efec;
+        }
+
+        /* Dynamic Island */
+        .work-screen::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32%;
+            height: 22px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        /* Home indicator */
+        .work-screen::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 3px;
+            z-index: 2;
         }
 
         .work-tile-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
         }
 
         .work-tile-play {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.35);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             padding-left: 3px;
+            flex-shrink: 0;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.06);
         }
 
         .work-tile-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            opacity: 0.7;
+            opacity: 0.75;
+            padding-top: 4px;
+        }
+
+        .work-tile-bottom {
+            position: relative;
+            z-index: 1;
         }
 
         .work-tile-title {
             font-family: 'DM Serif Display', serif;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
 
         .work-tile-meta {
-            font-size: 12px;
+            font-size: 11px;
             opacity: 0.65;
             margin-top: 6px;
         }
@@ -868,48 +946,8 @@
         .contact-methods {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-method {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 24px 28px;
-            border: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--text);
-            background: var(--bg);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'DM Sans', sans-serif;
-            text-align: left;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .contact-method.revealed {
-            cursor: default;
-        }
-
-        .contact-method:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .contact-method-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-        }
-
-        .contact-method-value {
-            font-family: 'DM Serif Display', serif;
-            font-size: 22px;
-            font-weight: 400;
-            letter-spacing: -0.02em;
+            gap: 20px;
+            align-items: flex-start;
         }
 
         .contact-socials {
@@ -917,7 +955,6 @@
             gap: 12px;
             align-items: center;
             margin-top: 4px;
-            padding: 0 4px;
         }
 
         .contact-socials a {
@@ -959,7 +996,12 @@
 
             .apps-strip { grid-template-columns: repeat(2, 1fr); }
 
-            .work-grid { grid-template-columns: 1fr; }
+            .work-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+            .work-tile-title { font-size: 16px; }
+            .work-tile-tag { font-size: 8px; }
+            .work-tile-play { width: 28px; height: 28px; font-size: 9px; }
+            .work-screen { padding: 32px 12px 24px; }
+            .work-screen::before { height: 16px; top: 8px; }
 
             .packages-grid { grid-template-columns: 1fr; }
 
@@ -1063,63 +1105,75 @@
             </div>
             <div class="work-grid">
                 <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">App Demo</span>
-                        <div class="work-tile-play">▶</div>
-                    </div>
-                    <div>
-                        <div class="work-tile-title">Shipping in Public</div>
-                        <div class="work-tile-meta">Founder-led product tours</div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">Dev Log</span>
-                        <div class="work-tile-play">▶</div>
-                    </div>
-                    <div>
-                        <div class="work-tile-title">Behind the Build</div>
-                        <div class="work-tile-meta">Real workflow, real bugs</div>
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">App Demo</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">Shipping in Public</div>
+                            <div class="work-tile-meta">Founder-led product tours</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">Tutorial</span>
-                        <div class="work-tile-play">▶</div>
-                    </div>
-                    <div>
-                        <div class="work-tile-title">Swift + SwiftUI</div>
-                        <div class="work-tile-meta">Short-form dev tips</div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">Review</span>
-                        <div class="work-tile-play">▶</div>
-                    </div>
-                    <div>
-                        <div class="work-tile-title">Tool Reviews</div>
-                        <div class="work-tile-meta">What I actually use</div>
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">Dev Log</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">Behind the Build</div>
+                            <div class="work-tile-meta">Real workflow, real bugs</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">Founder Notes</span>
-                        <div class="work-tile-play">▶</div>
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">Tutorial</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">Swift + SwiftUI</div>
+                            <div class="work-tile-meta">Short-form dev tips</div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="work-tile-title">Solo Studio</div>
-                        <div class="work-tile-meta">Lessons from shipping alone</div>
+                </a>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">Review</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">Tool Reviews</div>
+                            <div class="work-tile-meta">What I actually use</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">Founder Notes</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">Solo Studio</div>
+                            <div class="work-tile-meta">Lessons from shipping alone</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener" class="work-tile">
-                    <div class="work-tile-top">
-                        <span class="work-tile-tag">Threads</span>
-                        <div class="work-tile-play">▶</div>
-                    </div>
-                    <div>
-                        <div class="work-tile-title">On @zerobleek</div>
-                        <div class="work-tile-meta">Daily builds and takes</div>
+                    <div class="work-screen">
+                        <div class="work-tile-top">
+                            <span class="work-tile-tag">Threads</span>
+                            <div class="work-tile-play">▶</div>
+                        </div>
+                        <div class="work-tile-bottom">
+                            <div class="work-tile-title">On @zerobleek</div>
+                            <div class="work-tile-meta">Daily builds and takes</div>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -1198,14 +1252,7 @@
                     <p>For partnership inquiries, sponsorships, or app-build collaborations, reach out directly. I read and respond to every message.</p>
                 </div>
                 <div class="contact-methods">
-                    <button type="button" class="contact-method reveal-contact" data-kind="email" aria-label="Reveal email address">
-                        <span class="contact-method-label">Email</span>
-                        <span class="contact-method-value">Click to reveal</span>
-                    </button>
-                    <button type="button" class="contact-method reveal-contact" data-kind="phone" aria-label="Reveal phone number">
-                        <span class="contact-method-label">Phone</span>
-                        <span class="contact-method-value">Click to reveal</span>
-                    </button>
+                    <a href="#" id="email-btn" class="btn-primary" data-e="bWFsaWtiYW5rc255Y0BnbWFpbC5jb20=">Email Me →</a>
                     <div class="contact-socials">
                         <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener">Twitter</a>
                         <span class="sep">·</span>
@@ -1291,34 +1338,12 @@
         els.forEach(function(el) { obs.observe(el); });
     })();
 
-    // Contact reveal — decode + swap on click so scrapers don't see raw values
+    // Email button — build mailto at runtime so raw HTML doesn't leak the address
     (function() {
-        var e64 = 'bWFsaWtiYW5rc255Y0BnbWFpbC5jb20=';
-        var pParts = ['212', '814', '8030'];
-        var pRaw = '+1' + pParts.join('');
-        var pDisplay = pParts.join('.');
-        function decode(b64) { return atob(b64); }
-        document.querySelectorAll('.reveal-contact').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                if (btn.classList.contains('revealed')) return;
-                var kind = btn.getAttribute('data-kind');
-                var val = btn.querySelector('.contact-method-value');
-                var link = document.createElement('a');
-                link.style.textDecoration = 'none';
-                link.style.color = 'inherit';
-                if (kind === 'email') {
-                    var addr = decode(e64);
-                    link.href = 'mai' + 'lto:' + addr;
-                    link.textContent = addr;
-                } else if (kind === 'phone') {
-                    link.href = 'tel:' + pRaw;
-                    link.textContent = pDisplay;
-                }
-                val.textContent = '';
-                val.appendChild(link);
-                btn.classList.add('revealed');
-            });
-        });
+        var btn = document.getElementById('email-btn');
+        if (!btn) return;
+        var addr = atob(btn.getAttribute('data-e'));
+        btn.setAttribute('href', 'mai' + 'lto:' + addr);
     })();
     </script>
 
