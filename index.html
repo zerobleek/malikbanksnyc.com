@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malikbanksnyc.com — Builder, Developer, Creator | NYC</title>
-    <meta name="description" content="Shabaka Malik Banks — NYC-based builder and iOS developer. Follow the journey: apps, content, and everything in between.">
+    <meta name="description" content="Shabaka Malik Banks — NYC iOS developer, founder of Bleek Vision LLC, and content creator. Sponsored content, product placement, and app-build partnerships.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://malikbanksnyc.com/">
     <meta property="og:type" content="website">
@@ -490,6 +490,443 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Hero CTAs */
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .btn-primary, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 22px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        /* Apps strip */
+        .apps-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .app-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 12px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .app-tile:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .app-tile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .app-tile-name {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .app-tile-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .apps-published {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .apps-published a {
+            color: var(--text);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .apps-published a:hover { border-bottom-color: var(--accent); }
+
+        /* Work grid — video-first tiles */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .work-tile {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            background: #111;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            color: #f0efec;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .work-tile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%);
+            z-index: 0;
+        }
+
+        .work-tile > * { position: relative; z-index: 1; }
+
+        .work-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .work-tile-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .work-tile-play {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            padding-left: 3px;
+        }
+
+        .work-tile-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+
+        .work-tile-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .work-tile-meta {
+            font-size: 12px;
+            opacity: 0.65;
+            margin-top: 6px;
+        }
+
+        .work-empty {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 32px;
+            padding: 16px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Partner packages */
+        .partner-intro {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .package-card {
+            border: 1px solid var(--border);
+            padding: 32px 28px;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .package-card.featured {
+            border-color: var(--accent);
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .package-card.featured .package-name,
+        .package-card.featured .package-price,
+        .package-card.featured .package-cta {
+            color: var(--bg);
+        }
+
+        .package-card.featured .package-desc,
+        .package-card.featured .package-features li {
+            color: rgba(250, 250, 249, 0.7);
+        }
+
+        .package-card.featured .package-features li::before {
+            color: var(--bg);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -10px;
+            left: 28px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            border: 1px solid var(--accent);
+        }
+
+        .package-card:hover:not(.featured) {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .package-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .package-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .package-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text);
+            letter-spacing: 0.05em;
+        }
+
+        .package-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0;
+            margin: 4px 0;
+        }
+
+        .package-features li {
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .package-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .package-cta {
+            display: inline-block;
+            margin-top: auto;
+            padding-top: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .package-cta:hover { border-bottom-color: var(--accent); }
+
+        /* About */
+        .about-content {
+            max-width: 640px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .about-content p:last-child { margin-bottom: 0; color: var(--text-muted); }
+
+        /* Contact form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .contact-info a {
+            color: var(--text);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .contact-info a:hover { border-bottom-color: var(--accent); }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 24px 28px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            background: var(--bg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-method-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .contact-method-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-socials {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 4px;
+            padding: 0 4px;
+        }
+
+        .contact-socials a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-socials a:hover { color: var(--text); }
+
+        .contact-socials .sep {
+            color: var(--border);
+            font-size: 12px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
@@ -510,12 +947,15 @@
                 padding-bottom: 48px;
             }
 
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-ctas { flex-wrap: wrap; }
 
-            .app-row { flex-wrap: wrap; gap: 4px 12px; }
-            .app-name { min-width: auto; }
+            .apps-strip { grid-template-columns: repeat(2, 1fr); }
+
+            .work-grid { grid-template-columns: 1fr; }
+
+            .packages-grid { grid-template-columns: 1fr; }
+
+            .contact-grid { grid-template-columns: 1fr; gap: 32px; }
 
             .footer-content {
                 flex-direction: column;
@@ -539,9 +979,10 @@
                 <span>malikbanksnyc</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#content">Content</a></li>
-                <li><a href="#apps">Apps</a></li>
-                <li><a href="#links">Links</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#partner">Partner</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -553,7 +994,11 @@
                 <div class="header-content">
                     <div class="header-text">
                         <h1>Shabaka Malik Banks</h1>
-                        <p class="tagline">Solo Developer. Founder. Creator. Building in NYC.</p>
+                        <p class="tagline">iOS developer &amp; founder in New York City. Building apps. Making content. Open to partnerships.</p>
+                        <div class="hero-ctas">
+                            <a href="#work" class="btn-primary">See the Work</a>
+                            <a href="#partner" class="btn-outline">Partner With Me →</a>
+                        </div>
                     </div>
                     <div class="header-image">
                         <img src="/images/profile.jpg" alt="Shabaka Malik Banks" width="680" height="1024" loading="eager">
@@ -566,93 +1011,201 @@
     <div class="container">
         <main>
 
-        <section id="content" class="reveal">
+        <section id="apps-strip" class="reveal">
             <div class="section-header">
-                <h2 class="section-title">Content</h2>
+                <h2 class="section-title">Apps I've Shipped</h2>
                 <span class="section-code">001</span>
                 <div class="section-line"></div>
             </div>
-            <div class="content-grid">
-                <div class="content-col">
-                    <h3>Latest Videos</h3>
-                    <div class="youtube-embeds">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=zerobleek&max-results=1" title="Latest YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                    </div>
-                    <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="content-link">All videos on YouTube →</a>
-                </div>
-                <div class="twitter-col">
-                    <h3>Posts</h3>
-                    <a class="twitter-timeline" data-height="450" data-theme="light" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/zerobleek">@zerobleek</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
+            <div class="apps-strip">
+                <a href="https://apps.apple.com/us/app/madweather/id6758524351" target="_blank" rel="noopener" class="app-tile">
+                    <div class="app-tile-icon">M</div>
+                    <span class="app-tile-name">MadWeather</span>
+                    <span class="app-tile-status">Live</span>
+                </a>
+                <a href="https://apps.apple.com/us/app/focus-deck-focus-timer/id6771453354" target="_blank" rel="noopener" class="app-tile">
+                    <div class="app-tile-icon">F</div>
+                    <span class="app-tile-name">FOCUS//DECK</span>
+                    <span class="app-tile-status">Live</span>
+                </a>
+                <a href="https://apps.apple.com/us/app/uncontained/id6761268905" target="_blank" rel="noopener" class="app-tile">
+                    <div class="app-tile-icon">U</div>
+                    <span class="app-tile-name">UNCONTAINED</span>
+                    <span class="app-tile-status">Live</span>
+                </a>
+                <a href="https://apps.apple.com/us/app/momknows/id6763380814" target="_blank" rel="noopener" class="app-tile">
+                    <div class="app-tile-icon">MK</div>
+                    <span class="app-tile-name">MomKnows!</span>
+                    <span class="app-tile-status">Live</span>
+                </a>
+                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-tile">
+                    <div class="app-tile-icon">CP</div>
+                    <span class="app-tile-name">Cipher Protocol</span>
+                    <span class="app-tile-status">In Dev</span>
+                </a>
             </div>
+            <p class="apps-published">Published by <a href="https://bleekvision.com" target="_blank" rel="noopener">Bleek Vision LLC</a></p>
         </section>
 
-        <section id="apps" class="reveal">
+        <section id="work" class="reveal">
             <div class="section-header">
-                <h2 class="section-title">Apps</h2>
+                <h2 class="section-title">The Work</h2>
                 <span class="section-code">010</span>
                 <div class="section-line"></div>
             </div>
-            <p style="color:var(--text-muted);font-size:15px;margin-bottom:32px;">Published by <a href="https://bleekvision.com" target="_blank" rel="noopener" style="color:var(--text);font-weight:500;text-decoration:none;">Bleek Vision LLC</a></p>
-            <div class="apps-list">
-                <a href="https://apps.apple.com/us/app/madweather/id6758524351" target="_blank" rel="noopener" class="app-row">
-                    <span class="app-name">MadWeather</span>
-                    <span class="app-desc">Weather for Real New Yorkers.</span>
-                    <span class="app-status live">Live</span>
+            <div class="work-grid">
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">App Demo</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">Shipping in Public</div>
+                        <div class="work-tile-meta">Founder-led product tours</div>
+                    </div>
                 </a>
-                <a href="https://apps.apple.com/us/app/focus-deck-focus-timer/id6771453354" target="_blank" rel="noopener" class="app-row">
-                    <span class="app-name">FOCUS//DECK</span>
-                    <span class="app-desc">Pomodoro + ADHD sprints cyberdeck</span>
-                    <span class="app-status live">Live</span>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">Dev Log</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">Behind the Build</div>
+                        <div class="work-tile-meta">Real workflow, real bugs</div>
+                    </div>
                 </a>
-                <a href="https://apps.apple.com/us/app/uncontained/id6761268905" target="_blank" rel="noopener" class="app-row">
-                    <span class="app-name">UNCONTAINED</span>
-                    <span class="app-desc">Nuclear fission puzzle game</span>
-                    <span class="app-status live">Live</span>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">Tutorial</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">Swift + SwiftUI</div>
+                        <div class="work-tile-meta">Short-form dev tips</div>
+                    </div>
                 </a>
-                <a href="https://apps.apple.com/us/app/momknows/id6763380814" target="_blank" rel="noopener" class="app-row">
-                    <span class="app-name">MomKnows!</span>
-                    <span class="app-desc">Private family knowledge capture</span>
-                    <span class="app-status live">Live</span>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">Review</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">Tool Reviews</div>
+                        <div class="work-tile-meta">What I actually use</div>
+                    </div>
                 </a>
-                <a href="https://bleekvision.com" target="_blank" rel="noopener" class="app-row">
-                    <span class="app-name">Cipher Protocol</span>
-                    <span class="app-desc">Fitness RPG meets 90s espionage</span>
-                    <span class="app-status">In Dev</span>
+                <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">Founder Notes</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">Solo Studio</div>
+                        <div class="work-tile-meta">Lessons from shipping alone</div>
+                    </div>
                 </a>
+                <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener" class="work-tile">
+                    <div class="work-tile-top">
+                        <span class="work-tile-tag">Threads</span>
+                        <div class="work-tile-play">▶</div>
+                    </div>
+                    <div>
+                        <div class="work-tile-title">On @zerobleek</div>
+                        <div class="work-tile-meta">Daily builds and takes</div>
+                    </div>
+                </a>
+            </div>
+            <p class="work-empty">More content dropping soon. Follow <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener" style="color:var(--text);font-weight:500;text-decoration:none;border-bottom:1px solid var(--border);">YouTube</a> and <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener" style="color:var(--text);font-weight:500;text-decoration:none;border-bottom:1px solid var(--border);">Twitter</a> for the latest.</p>
+        </section>
+
+        <section id="partner" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Partner With Me</h2>
+                <span class="section-code">011</span>
+                <div class="section-line"></div>
+            </div>
+            <p class="partner-intro">I work with brands that make tools, hardware, or software for builders, indie developers, and tech-fluent creators. If your product fits, let's talk.</p>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-name">Sponsored Content</div>
+                    <div class="package-price">Custom · Request Quote</div>
+                    <p class="package-desc">A dedicated video or short focused on your product, built into my content voice.</p>
+                    <ul class="package-features">
+                        <li>1 hero long-form video</li>
+                        <li>2 short-form cuts (Reels / TikTok / Shorts)</li>
+                        <li>Cross-post to Twitter/X</li>
+                        <li>Usage rights included</li>
+                    </ul>
+                    <a href="#contact" class="package-cta">Start a Conversation →</a>
+                </div>
+                <div class="package-card featured">
+                    <span class="package-badge">Most Popular</span>
+                    <div class="package-name">Product Placement</div>
+                    <div class="package-price">Custom · Request Quote</div>
+                    <p class="package-desc">Your product woven into my ongoing dev-log content over a 30-day window.</p>
+                    <ul class="package-features">
+                        <li>30-day placement window</li>
+                        <li>Natural mentions across content</li>
+                        <li>1 dedicated segment</li>
+                        <li>Performance recap at the end</li>
+                    </ul>
+                    <a href="#contact" class="package-cta">Start a Conversation →</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">Custom</div>
+                    <div class="package-price">Let's Talk</div>
+                    <p class="package-desc">Longer campaigns, app-build partnerships, or something else entirely.</p>
+                    <ul class="package-features">
+                        <li>Multi-video campaigns</li>
+                        <li>Co-branded builds</li>
+                        <li>Beta launch partnerships</li>
+                        <li>Bespoke scope</li>
+                    </ul>
+                    <a href="#contact" class="package-cta">Start a Conversation →</a>
+                </div>
             </div>
         </section>
 
-        <section id="links" class="reveal">
+        <section id="about" class="reveal">
             <div class="section-header">
-                <h2 class="section-title">Links</h2>
+                <h2 class="section-title">About</h2>
+                <span class="section-code">100</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <p>I'm Shabaka — an iOS developer and founder in New York City. I run <a href="https://bleekvision.com" target="_blank" rel="noopener" style="color:var(--text);border-bottom:1px solid var(--border);text-decoration:none;">Bleek Vision LLC</a>, a solo studio shipping privacy-first apps to the App Store. I design them, build them, market them, and support them myself.</p>
+                <p>I also make content — dev logs, product tours, and honest reviews of the tools I use every day. If you're a brand that serves builders, indie developers, or tech-fluent creators, I'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
                 <span class="section-code">101</span>
                 <div class="section-line"></div>
             </div>
-            <div class="links-grid">
-                <a href="https://github.com/zerobleek" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-card-icon">⌘</div>
-                    <div class="link-card-title">GitHub</div>
-                    <div class="link-card-subtitle">Code & Projects</div>
-                </a>
-                <a href="https://www.youtube.com/@zerobleek" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-card-icon">▶</div>
-                    <div class="link-card-title">YouTube</div>
-                    <div class="link-card-subtitle">Videos & Content</div>
-                </a>
-                <a href="https://twitter.com/zerobleek" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-card-icon">𝕏</div>
-                    <div class="link-card-title">Twitter</div>
-                    <div class="link-card-subtitle">Updates & Thoughts</div>
-                </a>
-                <a href="mailto:malikbanksnyc@gmail.com" class="link-card">
-                    <div class="link-card-icon">✉</div>
-                    <div class="link-card-title">Email</div>
-                    <div class="link-card-subtitle">Get In Touch</div>
-                </a>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's build something.</h3>
+                    <p>For partnership inquiries, sponsorships, or app-build collaborations, reach out directly. I read and respond to every message.</p>
+                </div>
+                <div class="contact-methods">
+                    <a href="mailto:malikbanksnyc@gmail.com" class="contact-method">
+                        <span class="contact-method-label">Email</span>
+                        <span class="contact-method-value">malikbanksnyc@gmail.com</span>
+                    </a>
+                    <a href="tel:+12128148030" class="contact-method">
+                        <span class="contact-method-label">Phone</span>
+                        <span class="contact-method-value">212.814.8030</span>
+                    </a>
+                    <div class="contact-socials">
+                        <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener">Twitter</a>
+                        <span class="sep">·</span>
+                        <a href="https://www.youtube.com/@zerobleek" target="_blank" rel="noopener">YouTube</a>
+                        <span class="sep">·</span>
+                        <a href="https://github.com/zerobleek" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
             </div>
         </section>
 
