@@ -881,6 +881,14 @@
             color: var(--text);
             background: var(--bg);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'DM Sans', sans-serif;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-method.revealed {
+            cursor: default;
         }
 
         .contact-method:hover {
@@ -1190,14 +1198,14 @@
                     <p>For partnership inquiries, sponsorships, or app-build collaborations, reach out directly. I read and respond to every message.</p>
                 </div>
                 <div class="contact-methods">
-                    <a href="mailto:malikbanksnyc@gmail.com" class="contact-method">
+                    <button type="button" class="contact-method reveal-contact" data-kind="email" aria-label="Reveal email address">
                         <span class="contact-method-label">Email</span>
-                        <span class="contact-method-value">malikbanksnyc@gmail.com</span>
-                    </a>
-                    <a href="tel:+12128148030" class="contact-method">
+                        <span class="contact-method-value">Click to reveal</span>
+                    </button>
+                    <button type="button" class="contact-method reveal-contact" data-kind="phone" aria-label="Reveal phone number">
                         <span class="contact-method-label">Phone</span>
-                        <span class="contact-method-value">212.814.8030</span>
-                    </a>
+                        <span class="contact-method-value">Click to reveal</span>
+                    </button>
                     <div class="contact-socials">
                         <a href="https://twitter.com/zerobleek" target="_blank" rel="noopener">Twitter</a>
                         <span class="sep">·</span>
@@ -1281,6 +1289,36 @@
             });
         }, { threshold: 0.1 });
         els.forEach(function(el) { obs.observe(el); });
+    })();
+
+    // Contact reveal — decode + swap on click so scrapers don't see raw values
+    (function() {
+        var e64 = 'bWFsaWtiYW5rc255Y0BnbWFpbC5jb20=';
+        var pParts = ['212', '814', '8030'];
+        var pRaw = '+1' + pParts.join('');
+        var pDisplay = pParts.join('.');
+        function decode(b64) { return atob(b64); }
+        document.querySelectorAll('.reveal-contact').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (btn.classList.contains('revealed')) return;
+                var kind = btn.getAttribute('data-kind');
+                var val = btn.querySelector('.contact-method-value');
+                var link = document.createElement('a');
+                link.style.textDecoration = 'none';
+                link.style.color = 'inherit';
+                if (kind === 'email') {
+                    var addr = decode(e64);
+                    link.href = 'mai' + 'lto:' + addr;
+                    link.textContent = addr;
+                } else if (kind === 'phone') {
+                    link.href = 'tel:' + pRaw;
+                    link.textContent = pDisplay;
+                }
+                val.textContent = '';
+                val.appendChild(link);
+                btn.classList.add('revealed');
+            });
+        });
     })();
     </script>
 
