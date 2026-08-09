@@ -130,6 +130,8 @@
             flex-direction: column;
             gap: 28px;
             padding: 120px 0 128px;
+            align-items: center;
+            text-align: center;
         }
         .hero-eyebrow {
             font-size: 12px;
@@ -155,6 +157,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            justify-content: center;
             padding-top: 8px;
         }
         .btn-solid {
@@ -246,23 +249,53 @@
             text-wrap: pretty;
         }
 
+        /* Content categories */
+        .content-category {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 24px;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+        .category-line {
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+            display: block;
+        }
+
         /* Content grid — phones */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             column-gap: 20px;
-            row-gap: 44px;
-            padding-top: 4px;
+            row-gap: 32px;
         }
         .content-tile {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
             text-align: center;
             transition: color 0.15s;
         }
         .content-tile:hover { color: var(--ink); }
+        .content-tile.empty {
+            color: var(--text-3);
+            cursor: default;
+        }
+        .content-tile.empty:hover { color: var(--text-3); }
         .phone {
             width: 168px;
             aspect-ratio: 9 / 19.5;
@@ -284,6 +317,9 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+        }
+        .phone-screen.empty {
+            background: repeating-linear-gradient(45deg, #f6f6f4 0 8px, #fafafa 8px 16px);
         }
         .phone-island {
             position: absolute;
@@ -684,7 +720,7 @@
 
         <section id="top" class="hero">
             <div class="hero-eyebrow">iOS Dev · Founder · Content Creator</div>
-            <h1>Shabaka Malik Banks</h1>
+            <h1>@malikbanksnyc</h1>
             <p class="hero-tagline">A creator and solo dev creating products and building a studio.</p>
             <div class="hero-ctas">
                 <a href="#apps" class="btn-solid" data-glitch-parent>See the apps</a>
@@ -730,69 +766,90 @@
                 <h2 class="section-title">Content</h2>
                 <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="section-meta" data-glitch-parent>@malikbanksnyc ↗</a>
             </div>
-            <p class="content-intro">News &amp; Reviews. Games &amp; Tech. Development &amp; Entrepreneurship. Products &amp; Services.</p>
+            <p class="content-intro">Games &amp; Tech. Products &amp; Services. News &amp; Reviews. Development &amp; Entrepreneurship.</p>
 
-            <div class="content-grid">
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">app screen</span>
-                        </div>
+            <div class="content-category">
+                <div class="category-header">
+                    <span class="category-title" data-glitch>Games &amp; Tech</span>
+                    <span class="category-line"></span>
+                </div>
+                <div class="content-grid">
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>Shipping in public</span>
-                    <span class="tile-sub">Product tours, start to finish</span>
-                </a>
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">app screen</span>
-                        </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>Behind the build</span>
-                    <span class="tile-sub">Real workflow, real bugs</span>
-                </a>
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">short / clip</span>
-                        </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>Shorts</span>
-                    <span class="tile-sub">Quick builds and tool takes</span>
-                </a>
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">app screen</span>
-                        </div>
+                </div>
+            </div>
+
+            <div class="content-category">
+                <div class="category-header">
+                    <span class="category-title" data-glitch>Products &amp; Services</span>
+                    <span class="category-line"></span>
+                </div>
+                <div class="content-grid">
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>News &amp; reviews</span>
-                    <span class="tile-sub">Games and tech, weekly</span>
-                </a>
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">app screen</span>
-                        </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>Entrepreneurship</span>
-                    <span class="tile-sub">Studio building, in the open</span>
-                </a>
-                <a href="https://www.youtube.com/@malikbanksnyc" target="_blank" rel="noopener" class="content-tile" data-glitch-parent>
-                    <div class="phone">
-                        <div class="phone-screen">
-                            <div class="phone-island"></div>
-                            <span class="phone-label">app screen</span>
-                        </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
                     </div>
-                    <span class="tile-title" data-glitch>Products &amp; services</span>
-                    <span class="tile-sub">What I use and recommend</span>
-                </a>
+                </div>
+            </div>
+
+            <div class="content-category">
+                <div class="category-header">
+                    <span class="category-title" data-glitch>News &amp; Reviews</span>
+                    <span class="category-line"></span>
+                </div>
+                <div class="content-grid">
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-category">
+                <div class="category-header">
+                    <span class="category-title" data-glitch>Development &amp; Entrepreneurship</span>
+                    <span class="category-line"></span>
+                </div>
+                <div class="content-grid">
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                    <div class="content-tile empty">
+                        <div class="phone"><div class="phone-screen empty"><div class="phone-island"></div><span class="phone-label">coming soon</span></div></div>
+                        <span class="tile-title">Coming soon</span>
+                    </div>
+                </div>
             </div>
         </section>
 
