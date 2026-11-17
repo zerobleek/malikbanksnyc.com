@@ -140,11 +140,12 @@
             color: var(--accent);
         }
         .hero h1 {
-            font-size: 58px;
+            font-size: clamp(32px, 9vw, 58px);
             line-height: 1.04;
             font-weight: 700;
             letter-spacing: -0.035em;
             max-width: 16ch;
+            word-break: break-word;
         }
         .hero-tagline {
             font-size: 18px;
@@ -684,7 +685,6 @@
         @media (max-width: 900px) {
             .wrap { padding: 0 24px; }
             .hero { padding: 72px 0 88px; }
-            .hero h1 { font-size: 44px; }
             .app-row {
                 grid-template-columns: 1fr auto;
                 gap: 8px 16px;
